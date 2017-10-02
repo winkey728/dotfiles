@@ -77,8 +77,6 @@ plugins=(
     pip
     python
     pyenv
-    virtualenv
-    virtualenvwrapper
 
     # MacOS
     brew
@@ -119,3 +117,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Custom configurations used in different environments
+CUSTOM_ENV_FILE=".zsh_custom"
+CUSTOM_ENV_FILE_PATH=$HOME/$CUSTOM_ENV_FILE
+if [ -f $HOME/$CUSTOM_ENV_FILE ]; then
+    source $CUSTOM_ENV_FILE_PATH
+fi
