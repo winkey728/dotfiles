@@ -3,7 +3,7 @@
 ![Snapshot in Mac](http://ox8rz7kte.bkt.clouddn.com/images/dotfiles/mac.png?imageView2/2/w/650) 
 Mac
 
-![Snapshot in Mac](http://ox8rz7kte.bkt.clouddn.com/images/dotfiles/linux.png?imageView2/2/w/650)
+![Snapshot in Linux](http://ox8rz7kte.bkt.clouddn.com/images/dotfiles/linux.png?imageView2/2/w/650)
 Linux
 
 ## Getting Started
@@ -24,6 +24,11 @@ cd ~/projects/github/dotfiles
 pip install -r requirements.txt
 ./install.py
 ```
+Finally run:
+```
+exec "$SHELL"
+```
+or restart the shell
 
 ## License
 Released under [MIT License](https://github.com/winkey728/dotfiles/blob/master/LICENSE) 
