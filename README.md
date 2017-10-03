@@ -21,6 +21,7 @@ git clone https://github.com/winkey728/dotfiles.git ~/projects/github/dotfiles
 Then run the install script (use Python):
 ```
 cd ~/projects/github/dotfiles
+pip install -r requirements.txt
 ./install.py
 ```
 
