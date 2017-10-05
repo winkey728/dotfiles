@@ -1,0 +1,12 @@
+[[source]]
+verify_ssl = true
+url = "https://pypi.python.org/simple"
+name = "pypi"
+
+[dev-packages]
+
+[packages]
+
+"gitdb2" = "==2.0.3"
+gitpython = "*"
+"smmap2" = "==2.0.3"

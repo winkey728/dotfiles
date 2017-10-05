@@ -6,6 +6,8 @@ import os
 from pathlib import Path
 from git import Repo, RemoteProgress
 
+logging.basicConfig(level=logging.INFO)
+
 OH_MY_ZSH_DEFAULT_PATH = os.path.join(str(Path.home()), '.oh-my-zsh')
 OH_MY_ZSH_CUSTOM_PLUGINS_PATH = os.path.join(OH_MY_ZSH_DEFAULT_PATH, 'custom', 'plugins', '')
 
@@ -14,8 +16,6 @@ OH_MY_ZSH_CUSTOM_PLUGINS_REPO = {
     'zsh-completions': 'https://github.com/zsh-users/zsh-completions.git',
     'zsh-autosuggestions': 'https://github.com/zsh-users/zsh-autosuggestions.git'
 }
-
-logging.basicConfig(level=logging.DEBUG)
 
 def ohmyzsh_exists(path=OH_MY_ZSH_DEFAULT_PATH):
     logging.debug('Check oh-my-zsh path exists: %s' % path)
@@ -67,8 +67,10 @@ def create_symlinks():
         symlink_file(curdir, home, f)
 
 def doinstall():
+    logging.info('Start to initialize ZSH environment......')
     install_ohmyzsh()
     create_symlinks()
+    logging.info('Completing the initialization of ZSH')
 
 if __name__ == '__main__':
     doinstall()
