@@ -87,6 +87,9 @@ plugins=(
     zsh-completions
 )
 
+# zsh-completions init
+autoload -U compinit && compinit
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
