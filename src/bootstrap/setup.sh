@@ -230,28 +230,28 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    . directories.sh
+    ./directories.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    . symbol_links.sh
+    ./symbol_links.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    . local_config_files.sh
+    ./local_config_files.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    . install.sh
+    ./install.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    . preferences.sh
+    ./preferences.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     if ! $skipQuestions; then
-        . restart.sh
+        ./restart.sh
     fi
 
 }
