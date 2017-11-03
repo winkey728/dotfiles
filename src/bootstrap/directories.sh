@@ -33,3 +33,5 @@ main() {
     create_directories
 
 }
+
+main "$@"

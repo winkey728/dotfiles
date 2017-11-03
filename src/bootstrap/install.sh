@@ -18,3 +18,5 @@ main() {
     "$FILE_PATH/$(get_os)/main.sh"
 
 }
+
+main "$@"
