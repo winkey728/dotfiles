@@ -20,7 +20,6 @@ main() {
     ../nodejs.sh
     ../shell-script.sh
     ../uml.sh
-    ../misc.sh
 
     ./emacs.sh
     ./browser.sh
