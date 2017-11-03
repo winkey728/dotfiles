@@ -5,6 +5,15 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+declare BREW_NAME="Homebrew"
+declare IS_HOMEBREW=true
+
+test "$(get_os)" == "ubuntu" \
+    && declare -r BREW_NAME="Linuxbrew" \
+    && declare -r IS_HOMEBREW=false
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 brew_cleanup() {
 
     # By default Homebrew does not uninstall older versions
@@ -15,11 +24,15 @@ brew_cleanup() {
 
     execute \
         "brew cleanup" \
-        "Homebrew (cleanup)"
+        "$BREW_NNAME (cleanup)"
 
-    execute \
-        "brew cask cleanup" \
-        "Homebrew (cask cleanup)"
+    if $IS_HOMEBREW; then
+
+        execute \
+            "brew cask cleanup" \
+            "$BREW_NAME (cask cleanup)"
+
+    fi
 
 }
 
@@ -35,7 +48,7 @@ brew_install() {
     # Check if `Homebrew` is installed.
 
     if ! cmd_exists "brew"; then
-        print_error "$FORMULA_READABLE_NAME ('Homebrew' is not installed)"
+        print_error "$FORMULA_READABLE_NAME ('$BREW_NAME' is not installed)"
         return 1
     fi
 
@@ -76,7 +89,7 @@ brew_prefix() {
         printf "%s" "$path"
         return 0
     else
-        print_error "Homebrew (get prefix)"
+        print_error "$BREW_NAME (get prebfix)"
         return 1
     fi
 
@@ -92,7 +105,7 @@ brew_update() {
 
     execute \
         "brew update" \
-        "Homebrew (update)"
+        "$BREW_NAME (update)"
 
 }
 
@@ -100,6 +113,6 @@ brew_upgrade() {
 
     execute \
         "brew upgrade" \
-        "Homebrew (upgrade)"
+        "$BREW_NAME (upgrade)"
 
 }
