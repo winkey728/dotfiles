@@ -1,5 +1,5 @@
-#Python
-.python-version
+# Auto generated zsh functions
+src/symlinks/zsh/zfunc/_*
 
 #Emacs
 *.*#*
