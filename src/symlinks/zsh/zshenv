@@ -1,54 +1,78 @@
-# Linuxbrew
-if [ -d $HOME/.linuxbrew ]; then
-    export PATH="$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:$PATH"
-elif [ -d /home/linuxbrew/.linuxbrew ]; then
-    export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
-fi
+get_os() {
 
-# Java
-if [ -f $HOME/.jenv/bin/jenv ]; then
-    export PATH="$HOME/.jenv/bin:$PATH"
-    export CLASSPATH=.:$JAVA_HOME/lib:$JAVA_HOME/jre/lib:$CLASSPATH
-    eval "$(jenv init -)"
-elif [ -x "$(command -v jenv)" ]; then
-    eval "$(jenv init -)"
-fi
+    local os=""
+    local kernelName=""
 
-# Ruby
-if [ -f $HOME/.rvm/bin/rvm ]; then
-    export RVM_PATH="$HOME/.rvm"
-    export PATH="$PATH:$RVM_PATH/bin" # Add RVM to PATH for scripting
-fi
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# Python
-if [ -f $HOME/.pyenv/bin/pyenv ]; then
-    export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init -)"
+    kernelName="$(uname -s)"
 
-    [ -s $HOME/.pyenv/plugins/pyenv-virtualenv/bin/pyenv-virtualenv ] && eval "$(pyenv virtualenv-init -)"
-fi
+    case "$kernelName" in
+        Darwin*)
+            os="macos" ;;
+        Linux*)
+            if [ -e "/etc/lsb-release" ]; then
+                os="ubuntu"
+            fi
+            ;;
+        *)
+            os="$kernelName"
+            ;;
+    esac
 
-# NodeJS
-if [ -d $HOME/.nvm ]; then
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-    [ -x "$(command -v brew)" ] && [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && . "$(brew --prefix)/opt/nvm/nvm.sh"
-fi
+    printf "%s" "$os"
 
-# Rust
-if [ -f $HOME/.cargo/bin/rustc ]; then
-    export PATH="$HOME/.cargo/bin:$PATH"
-    export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
-fi
+}
 
-# autojump
-if [ -f "$(brew --prefix)/etc/profile.d/autojump.sh" ]; then
-    . "$(brew --prefix)/etc/profile.d/autojump.sh"
-fi
+source_zsh_files() {
 
-# fzf
-if [ -x "$(command -v fzf)" ]; then
-    export FZF_DEFAULT_COMMAND="rg -uu -g '!.git' -g '!.svn' -g '!.DS_Store' --files ~"
-    export FZF_DEFAULT_OPTS="--inline-info"
-fi
+    declare -r CURRENT_DIRECTORY="$(pwd)"
+    declare -r OS="$(get_os)"
+
+    declare -ar FILES_TO_SOURCE=(
+        "zconf/aliases/aliases.zsh"
+        "zconf/aliases/$OS/aliases.zsh"
+        "zconf/exports.zsh"
+        "zconf/functions.zsh"
+        "zconf/keybindings.zsh"
+        "zconf/options.zsh"
+        "zsh.local" # For local settings that should
+                    # not be under version control
+    )
+
+    local file=""
+    local i=""
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    cd "$(dirname "$(readlink "${(%):-%x}")")"
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    for f in $FILES_TO_SOURCE; do
+
+        file="$HOME/.$f"
+
+        [ -r "$file" ] \
+            && . "$file"
+
+    done
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    cd "$CURRENT_DIRECTORY"
+
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+source_zsh_files
+unset -f source_zsh_files
+unset -f get_os
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Clear system messages (system copyright notice, the date
+# and time of the last login, the message of the day, etc.).
+
+clear

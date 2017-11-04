@@ -1,0 +1,4 @@
+fpath=(
+    $HOME/.zfunc
+    $fpath
+)
