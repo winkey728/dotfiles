@@ -7,6 +7,8 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 declare -ar FILES_TO_SYMLINK=(
 
+    "zsh/zconf"
+    "zsh/zfunc"
     "zsh/zshenv"
     "zsh/zshrc"
 
