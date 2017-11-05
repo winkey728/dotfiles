@@ -37,7 +37,10 @@ if [ -f $HOME/.jenv/bin/jenv ]; then
     export PATH="$HOME/.jenv/bin:$PATH"
     export CLASSPATH=.:$JAVA_HOME/lib:$JAVA_HOME/jre/lib:$CLASSPATH
     eval "$(jenv init -)"
-elif [ -x "$(command -v jenv)" ]; then
+elif command -v jenv > /dev/null 2>&1; then
+    if [ -d /usr/local/opt/jenv ]; then
+        export JENV_ROOT="/usr/local/opt/jenv"
+    fi
     eval "$(jenv init -)"
 fi
 
@@ -47,7 +50,7 @@ fi
 
 if [ -f $HOME/.rvm/bin/rvm ]; then
     export RVM_PATH="$HOME/.rvm"
-    export PATH="$PATH:$RVM_PATH/bin" # Add RVM to PATH for scripting
+    export PATH="$RVM_PATH/bin:$PATH" # Add RVM to PATH for scripting
 fi
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
