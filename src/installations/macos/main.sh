@@ -8,18 +8,30 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 main() {
 
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    # Foundations
+
     ./xcode.sh
     ./homebrew.sh
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    # Development tools
 
     ../zsh.sh
     ../git.sh
     ../command_line_tools.sh
-    ../java.sh
+    ./java.sh
     ../rust.sh
     ../python.sh
     ../nodejs.sh
     ../shell-script.sh
     ../uml.sh
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    # Applications
 
     ./emacs.sh
     ./browser.sh
@@ -31,6 +43,8 @@ main() {
     ./design.sh
     ./netdisk.sh
     ./misc_app.sh
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     ./cleanup.sh
 
