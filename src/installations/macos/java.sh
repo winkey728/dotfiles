@@ -6,11 +6,19 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+declare -ar JAVA6=("1.6" "java6" "Oracle Java 6")
+declare -ar JAVA8=("1.8" "java8" "Oracle Java 8")
+declare -ar JAVA9=("1.9" "java9" "Oracle Java 9")
+
+declare -r DEFAULT_JDK="${JAVA8[0]}"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 install_java() {
 
-    brew_install "Oracle Java 6" "java6"
-    brew_install "Oracle Java 8" "java8"
-    brew_install "Oracle Java 9" "java9"
+    brew_install "${JAVA6[1]}" "${JAVA6[2]}"
+    brew_install "${JAVA8[1]}" "${JAVA8[2]}"
+    brew_install "${JAVA9[1]}" "${JAVA9[2]}"
 
 }
 
@@ -58,11 +66,9 @@ manage_jdk_with_jenv() {
 
 set_default_jdk() {
 
-    declare -r defaultJdk="1.8"
-
     execute \
-        "jenv global '$defaultJdk'" \
-        "Jenv (set default jdk to $defaultJdk)"
+        "jenv global '$DEFAULT_JDK'" \
+        "Jenv (set default jdk to $DEFAULT_JDK)"
 
 }
 
@@ -74,9 +80,8 @@ main() {
 
     install_java
 
-    install_jenv
-
-    manage_jdk_with_jenv \
+    install_jenv \
+        && manage_jdk_with_jenv \
         && set_default_jdk
 
 }
