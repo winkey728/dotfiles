@@ -15,9 +15,24 @@ export CLICOLOR=true
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# Add useful bin directories to PATH
+# Add useful bin directories to PATH if nessesary
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+push_path() {
+
+    local pathToAdd="$1"
+
+    [[ ":$PATH:" != *":$pathToAdd:"* ]] && PATH="$pathToAdd:$PATH"
+
+}
+
+push_path "/sbin"
+push_path "/usr/sbin"
+push_path "/bin"
+push_path "/usr/bin"
+push_path "/usr/local/bin"
+push_path "$HOME/bin"
+
+export PATH
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
