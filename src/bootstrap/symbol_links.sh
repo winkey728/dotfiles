@@ -6,6 +6,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 declare -ar FILES_TO_SYMLINK=(
+    "curl/curlrc"
 
     "zsh/zconf"
     "zsh/zfunc"
@@ -36,7 +37,9 @@ create_symlinks() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    for i in "$FILES_TO_SYMLINK"; do
+    echo "$skipQuestions"
+
+    for i in "${FILES_TO_SYMLINK[@]}"; do
 
         sourceFile="$(cd ../symlinks && pwd)/$i"
         targetFile="$HOME/.$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")"
@@ -55,7 +58,7 @@ create_symlinks() {
 
             if ! $skipQuestions; then
 
-                ask_for_confirmatiom "'$targetFile' already exists, do you want to overwrite it?"
+                ask_for_confirmation "'$targetFile' already exists, do you want to overwrite it?"
                 if answer_is_yes; then
 
                     rm -rf "$targetFile"

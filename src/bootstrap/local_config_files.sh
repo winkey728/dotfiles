@@ -63,15 +63,15 @@ create_gitconfig_local() {
 
 [diff]
 
-    # You can use any diff tool here(e.g diffmerge)
+    # You can use any diff tool here(e.g. Meld)
 
-    # tool = diffmerge
+    # tool = meld
 
 [merge]
 
-    # You can use any merge tool here(e.g diffmerge)
+    # You can use any merge tool here(e.g. Meld)
 
-    # tool = diffmerge
+    # tool = meld
 
 [user]
 
@@ -95,6 +95,7 @@ main() {
 
 
     create_gitconfig_local "$@"
+    create_zsh_local "$@"
 
 }
 
