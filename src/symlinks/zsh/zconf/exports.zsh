@@ -29,6 +29,7 @@ push_path "/sbin"
 push_path "/usr/sbin"
 push_path "/bin"
 push_path "/usr/bin"
+push_path "/usr/local/sbin"
 push_path "/usr/local/bin"
 push_path "$HOME/bin"
 
@@ -78,16 +79,6 @@ if [ -f $HOME/.pyenv/bin/pyenv ]; then
     eval "$(pyenv init -)"
 
     [ -s $HOME/.pyenv/plugins/pyenv-virtualenv/bin/pyenv-virtualenv ] && eval "$(pyenv virtualenv-init -)"
-fi
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-# Initial nodejs and nvm
-
-if [ -d $HOME/.nvm ]; then
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-    [ -x "$(command -v brew)" ] && [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && . "$(brew --prefix)/opt/nvm/nvm.sh"
 fi
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
