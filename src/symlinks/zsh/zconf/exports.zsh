@@ -47,30 +47,6 @@ fi
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# Initial java and jenv
-
-if [ -f $HOME/.jenv/bin/jenv ]; then
-    export PATH="$HOME/.jenv/bin:$PATH"
-    export CLASSPATH=.:$JAVA_HOME/lib:$JAVA_HOME/jre/lib:$CLASSPATH
-    eval "$(jenv init -)"
-elif command -v jenv > /dev/null 2>&1; then
-    if [ -d /usr/local/opt/jenv ]; then
-        export JENV_ROOT="/usr/local/opt/jenv"
-    fi
-    eval "$(jenv init -)"
-fi
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-# Initial ruby and rvm
-
-if [ -f $HOME/.rvm/bin/rvm ]; then
-    export RVM_PATH="$HOME/.rvm"
-    export PATH="$RVM_PATH/bin:$PATH" # Add RVM to PATH for scripting
-fi
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 # Initial python and pyenv
 
 if [ -f $HOME/.pyenv/bin/pyenv ]; then
@@ -79,13 +55,4 @@ if [ -f $HOME/.pyenv/bin/pyenv ]; then
     eval "$(pyenv init -)"
 
     [ -s $HOME/.pyenv/plugins/pyenv-virtualenv/bin/pyenv-virtualenv ] && eval "$(pyenv virtualenv-init -)"
-fi
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-# Initial rust and rustup
-
-if [ -f $HOME/.cargo/bin/rustc ]; then
-    export PATH="$HOME/.cargo/bin:$PATH"
-    export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 fi
