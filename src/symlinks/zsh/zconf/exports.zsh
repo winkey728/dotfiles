@@ -15,6 +15,13 @@ export CLICOLOR=true
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+# Prefer ZH Chinese and use UTF-8 encoding.
+
+export LANG="zh_CN.UTF-8"
+export LC_ALL="zh_CN.UTF-8"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 # Add useful bin directories to PATH if nessesary
 
 push_path() {
@@ -43,16 +50,4 @@ if [ -d $HOME/.linuxbrew ]; then
     export PATH="$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:$PATH"
 elif [ -d /home/linuxbrew/.linuxbrew ]; then
     export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
-fi
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-# Initial python and pyenv
-
-if [ -f $HOME/.pyenv/bin/pyenv ]; then
-    export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init -)"
-
-    [ -s $HOME/.pyenv/plugins/pyenv-virtualenv/bin/pyenv-virtualenv ] && eval "$(pyenv virtualenv-init -)"
 fi
