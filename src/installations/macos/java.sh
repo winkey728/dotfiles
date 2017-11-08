@@ -6,9 +6,11 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+declare -r LOCAL_SHELL_CONFIG_FILE="$HOME/.zsh.local"
+
 declare -ar JAVA6=("1.6" "java6" "Oracle Java 6")
 declare -ar JAVA8=("1.8" "java8" "Oracle Java 8")
-declare -ar JAVA9=("1.9" "java9" "Oracle Java 9")
+declare -ar LATEST_JAVA=("" "java" "Latest Oracle Java")
 
 declare -r DEFAULT_JDK="${JAVA8[0]}"
 
@@ -16,9 +18,42 @@ declare -r DEFAULT_JDK="${JAVA8[0]}"
 
 install_java() {
 
-    brew_install "${JAVA6[1]}" "${JAVA6[2]}"
-    brew_install "${JAVA8[1]}" "${JAVA8[2]}"
-    brew_install "${JAVA9[1]}" "${JAVA9[2]}"
+    brew_install "${JAVA6[2]}" "${JAVA6[1]}" "caskroom/cask" "cask"
+    brew_install "${JAVA8[2]}" "${JAVA8[1]}" "caskroom/cask" "cask"
+    brew_install "${LATEST_JAVA[2]}" "${LATEST_JAVA[1]}" "caskroom/cask" "cask"
+
+}
+
+add_jenv_config() {
+
+    declare -r CONFIGS="
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# jenv
+
+if [ -f \"\$HOME/.jenv/bin/jenv\" ]; then
+    export PATH=\"\$HOME/.jenv/bin:\$PATH\"
+    export CLASSPATH=\".:\$JAVA_HOME/lib:\$JAVA_HOME/jre/lib:\$CLASSPATH\"
+    eval \"\$(jenv init -)\"
+elif command -v jenv &> /dev/null; then
+    if [[ -d /usr/local/opt/jenv ]]; then
+        export JENV_ROOT=\"/usr/local/opt/jenv\"
+    fi
+    eval \"\$(jenv init -)\"
+fi
+
+"
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    if ! file_contains_string "jenv" "$LOCAL_SHELL_CONFIG_FILE"; then
+
+        execute \
+            "printf '%s' '$CONFIGS' >> $LOCAL_SHELL_CONFIG_FILE \
+            && . $LOCAL_SHELL_CONFIG_FILE" \
+            "jenv (update $LOCAL_SHELL_CONFIG_FILE)"
+
+    fi
 
 }
 
@@ -30,12 +65,15 @@ install_jenv() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    brew_install "jenv" "jenv"
+    brew_install "jenv" "jenv" \
+        && add_jenv_config \
+            || return 1
 
     for p in $plugins; do
 
         execute \
-            "jenv enable-plugin $p" \
+            ". $LOCAL_SHELL_CONFIG_FILE \
+                && jenv enable-plugin $p" \
             "jenv (enable plugin: $p)"
 
     done
@@ -44,21 +82,18 @@ install_jenv() {
 
 manage_jdk_with_jenv() {
 
-    declare -r jdkRootPath="/Library/Java/JavaVirtualMachines/"
+    declare -r jdkRootPath="/Library/Java/JavaVirtualMachines"
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    shopt -s nullglob
-    jdks=($jdkRootPath/)
-    shopt -u nullglob
+    for jdk in $jdkRootPath/*; do
 
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    for jdk in $jdks; do
+        # simulate input confirmation to force override
+        # existing jdk
 
         execute \
-            "jenv add '$jdkRootPath/$jdk/Content/Home'" \
-            "Add $jdk to jenv"
+            "printf \"yyy\" | jenv add $jdk/Contents/Home" \
+            "jenv (add $jdk to jenv)"
 
     done
 
@@ -67,10 +102,12 @@ manage_jdk_with_jenv() {
 set_default_jdk() {
 
     execute \
-        "jenv global '$DEFAULT_JDK'" \
+        "jenv global $DEFAULT_JDK" \
         "Jenv (set default jdk to $DEFAULT_JDK)"
 
 }
+
+
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

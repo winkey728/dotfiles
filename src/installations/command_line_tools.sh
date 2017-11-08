@@ -42,7 +42,7 @@ add_fzf_config() {
 
 # fzf
 
-if command -v \"fzf\" &> /dev/null; then \\
+if command -v \"fzf\" &> /dev/null; then
    export FZF_DEFAULT_COMMAND=\"rg -uu -g '!.git' -g '!.svn' -g '!.DS_Store' --files ~\"
    export FZF_DEFAULT_OPTS=\"--inline-info\"
 fi
