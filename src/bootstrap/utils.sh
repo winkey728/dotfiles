@@ -349,3 +349,16 @@ show_spinner() {
     done
 
 }
+
+file_contains_string() {
+
+    declare -r MATCH_STRING=$1
+    declare -r FILE_TO_SEARCH=$2
+
+    if grep "$MATCH_STRING" < "$FILE_TO_SEARCH" &> /dev/null; then
+        return 0
+    fi
+
+    return 1
+
+}

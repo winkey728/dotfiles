@@ -89,20 +89,3 @@ if [ -f $HOME/.cargo/bin/rustc ]; then
     export PATH="$HOME/.cargo/bin:$PATH"
     export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 fi
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-# Initial autojump
-
-if [ -f "$(brew --prefix)/etc/profile.d/autojump.sh" ]; then
-    . "$(brew --prefix)/etc/profile.d/autojump.sh"
-fi
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-# Initial fzf
-
-if [ -x "$(command -v fzf)" ]; then
-    export FZF_DEFAULT_COMMAND="rg -uu -g '!.git' -g '!.svn' -g '!.DS_Store' --files ~"
-    export FZF_DEFAULT_OPTS="--inline-info"
-fi

@@ -38,7 +38,7 @@ change_default_shell() {
     #
     # http://www.linuxfromscratch.org/blfs/view/7.4/postlfs/etcshells.html
 
-    if ! grep "$newShellPath" < /etc/shells &> /dev/null; then
+    if ! file_contains_string "$newShellPath" "/etc/shells"; then
         execute \
             "printf '%s\n' '$newShellPath' | sudo tee -a /etc/shells" \
             "Bash (add '$newShellPath' in '/etc/shells')" \
