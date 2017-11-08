@@ -6,6 +6,14 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+declare -r OMZ_DIRECTORY="$HOME/.oh-my-zsh"
+declare -r OMZ_GIT_REPO_URL="https://github.com/robbyrussell/oh-my-zsh.git"
+
+declare -r ZSH_AS_DIRECOTRY="$OMZ_DIRECTORY/custom/plugins/zsh-autosuggestions"
+declare -r ZSH_AS_GIT_REPO_URL="https://github.com/zsh-users/zsh-autosuggestions.git"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 change_default_shell() {
 
     local newShellPath=""
@@ -84,7 +92,7 @@ clone_omz() {
 
     execute \
         "git clone --quiet $url $dir" \
-        "Oh My Zsh (install to '$dir')"
+        "Oh My Zsh (install to $dir)"
 
 }
 
@@ -95,16 +103,11 @@ update_omz() {
     execute \
         "cd $dir \
             && git pull --quiet --rebase origin master" \
-        "Oh My Zsh (upgrade in '$dir')"
+        "Oh My Zsh (upgrade in $dir)"
 
 }
 
 install_omz() {
-
-    declare -r OMZ_DIRECTORY="$HOME/.oh-my-zsh"
-    declare -r OMZ_GIT_REPO_URL="https://github.com/robbyrussell/oh-my-zsh.git"
-
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     if [ ! -d "$OMZ_DIRECTORY" ]; then
 
@@ -127,7 +130,7 @@ clone_zsh_as() {
 
     execute \
         "git clone --quiet $url $dir" \
-        "zsh-autosuggestions (install to '$dir')"
+        "zsh-autosuggestions (install to $dir)"
 
 }
 
@@ -138,16 +141,11 @@ update_zsh_as() {
     execute \
         "cd $dir \
             && git pull --quiet --rebase origin master" \
-        "zsh-auttosuggestions (upgrade to '$dir')"
+        "zsh-auttosuggestions (upgrade in $dir)"
 
 }
 
 install_autosuggestions() {
-
-    declare -r ZSH_AS_DIRECOTRY="$OMZ_DIRECTORY/custom/plugins/zsh-autosuggestions"
-    declare -r ZSH_AS_GIT_REPO_URL="https://github.com/zsh-users/zsh-autosuggestions.git"
-
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     if [ ! -d "$ZSH_AS_DIRECOTRY" ]; then
 
