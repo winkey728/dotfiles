@@ -116,3 +116,34 @@ brew_upgrade() {
         "$BREW_NAME (upgrade)"
 
 }
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+is_app_installed() {
+
+    [ -d "/Applications/$1.app" ]
+
+}
+
+appstore_install() {
+
+    declare -r APPSTORE_URL="$1"
+    declare -r APP_NAME="$2"
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    if ! is_app_installed "$APP_NAME"; then
+        open "macappstores://$APPSTORE_URL"
+    fi
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    # Wait until APP is installed.
+
+    execute \
+        "until is_app_installed '$APP_NAME'; do \
+            sleep 5; \
+         done" \
+        "$APP_NAME.app"
+
+}

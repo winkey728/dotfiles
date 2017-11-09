@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 cd "$(dirname "${BASH_SOURCE[0]}")" \
-    && . "../../bootstrap/utils.sh"
+    && . "../../bootstrap/utils.sh" \
+    && . "../utils.sh"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -25,19 +26,7 @@ install_xcode() {
 
     # If necessary, prompt user to install `Xcode`.
 
-    if ! is_xcode_installed; then
-        open "macappstores://itunes.apple.com/en/app/xcode/id497799835"
-    fi
-
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    # Wait until `Xcode` is installed.
-
-    execute \
-        "until is_xcode_installed; do \
-            sleep 5; \
-         done" \
-        "Xcode.app"
+    appstore_install "itunes.apple.com/en/app/xcode/id497799835" "Xcode"
 
 }
 
@@ -57,12 +46,6 @@ install_xcode_command_line_tools() {
             sleep 5; \
          done" \
         "Xcode Command Line Tools"
-
-}
-
-is_xcode_installed() {
-
-    [ -d "/Applications/Xcode.app" ]
 
 }
 
