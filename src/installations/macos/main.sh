@@ -33,11 +33,11 @@ main() {
 
     # Applications
 
+    ./gfw.sh
     ./emacs.sh
     ./browser.sh
     ./terminal.sh
     ./mail.sh
-    ./gfw.sh
     ./media.sh
     ./chat.sh
     ./design.sh

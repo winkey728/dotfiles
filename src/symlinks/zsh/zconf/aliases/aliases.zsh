@@ -20,3 +20,9 @@ alias javahome='printf "%b\n" "$JAVA_HOME"'
 alias npmv="npm -v"
 alias npml="npm list --depth=0"
 alias npmlg="npm list -g --depth=0"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Proxychains-NG
+
+alias pc4="proxychains4 -q"
