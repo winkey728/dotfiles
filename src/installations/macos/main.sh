@@ -43,6 +43,7 @@ main() {
     ./design.sh
     ./netdisk.sh
     ./vc_tool.sh
+    ./sql.sh
     ./misc_app.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
