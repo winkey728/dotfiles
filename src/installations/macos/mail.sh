@@ -10,6 +10,6 @@ main() {
 
     print_in_purple "\n Email Tools\n\n"
 
-    brew_install "Netease MailMaster" "mailmaster"
+    brew_install "Netease MailMaster" "mailmaster" "caskroom/cask" "cask"
 
 }

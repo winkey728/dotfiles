@@ -10,6 +10,6 @@ main() {
 
     print_in_purple "\n   Terminals\n\n"
 
-    brew_install "iTerm2" "iterm2"
+    brew_install "iTerm2" "iterm2" "caskroom/cask" "cask"
 
 }
