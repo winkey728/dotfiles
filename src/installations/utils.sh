@@ -24,7 +24,7 @@ brew_cleanup() {
 
     execute \
         "brew cleanup" \
-        "$BREW_NNAME (cleanup)"
+        "$BREW_NAME (cleanup)"
 
     if $IS_HOMEBREW; then
 
