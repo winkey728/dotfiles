@@ -13,3 +13,5 @@ main() {
     brew_install "Netease MailMaster" "mailmaster" "caskroom/cask" "cask"
 
 }
+
+main "$@"

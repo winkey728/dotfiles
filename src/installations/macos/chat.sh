@@ -41,3 +41,5 @@ main() {
     install_wechat
 
 }
+
+main "$@"

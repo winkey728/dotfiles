@@ -13,3 +13,5 @@ main() {
     brew_install "Chrome" "google-chrome" "caskroom/cask" "cask"
 
 }
+
+main "$@"

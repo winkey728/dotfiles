@@ -13,3 +13,5 @@ main() {
     brew_install "iTerm2" "iterm2" "caskroom/cask" "cask"
 
 }
+
+main "$@"

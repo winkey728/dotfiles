@@ -22,3 +22,5 @@ main() {
     brew_install "Netease Music" "neteasemusic" "caskroom/cask" "cask"
 
 }
+
+main "$@"
