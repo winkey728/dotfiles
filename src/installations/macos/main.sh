@@ -42,6 +42,7 @@ main() {
     ./chat.sh
     ./design.sh
     ./netdisk.sh
+    ./vc_tool.sh
     ./misc_app.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
