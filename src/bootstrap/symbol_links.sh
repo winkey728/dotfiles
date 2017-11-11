@@ -18,6 +18,8 @@ declare -ar FILES_TO_SYMLINK=(
     "git/gitignore"
 
     "npm/npmrc"
+
+    "iterm/iTerm"
 )
 
 # ----------------------------------------------------------------------
