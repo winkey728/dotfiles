@@ -39,8 +39,6 @@ create_symlinks() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    echo "$skipQuestions"
-
     for i in "${FILES_TO_SYMLINK[@]}"; do
 
         sourceFile="$(cd ../symlinks && pwd)/$i"
