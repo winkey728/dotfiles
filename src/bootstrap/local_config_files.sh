@@ -29,6 +29,7 @@ create_gitconfig_local() {
 
     local gitUser=""
     local gitEmail=""
+    local credential=""
     local skipQuestions=false
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -50,6 +51,11 @@ create_gitconfig_local() {
             gitEmail="$(get_answer)"
 
         fi
+
+        # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        credential="$(get_git_credential)" \
+            || return 1
 
         # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -77,7 +83,11 @@ create_gitconfig_local() {
 
     name = $gitUser
     email = $gitEmail
-    # signingkey =" \
+    # signingkey =
+
+[credential]
+
+    helper = $credential" \
         >> "$FILE_PATH"
    fi
 

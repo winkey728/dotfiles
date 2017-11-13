@@ -11,6 +11,12 @@ ask() {
     read -r
 }
 
+ask_password() {
+    print_question "$1"
+    read -s 1
+    printf "\n"
+}
+
 ask_for_confirmation() {
     print_question "$1 (y/n) "
     read -r -n 1
@@ -360,5 +366,30 @@ file_contains_string() {
     fi
 
     return 1
+
+}
+
+get_git_credential() {
+
+    declare -r MACOS_GIT_CREDENTIAL_HELPER="osxkeychain"
+    declare -r UBUNTU_GIT_CREDENTIAL_HELPER="gnome-keyring"
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    case "$(get_os)" in
+
+        macos*)
+            printf "%s" "$MACOS_GIT_CREDENTIAL_HELPER"
+            ;;
+
+        ubuntu*)
+            printf "%s" "$UBUNTU_GIT_CREDENTIAL_HELPER"
+            ;;
+
+        *)
+            return 1
+            ;;
+
+    esac
 
 }
