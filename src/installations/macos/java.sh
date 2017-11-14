@@ -8,9 +8,9 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 declare -r LOCAL_SHELL_CONFIG_FILE="$HOME/.zsh.local"
 
-declare -ar JAVA6=("1.6" "java6" "Oracle Java 6")
-declare -ar JAVA8=("1.8" "java8" "Oracle Java 8")
-declare -ar LATEST_JAVA=("" "java" "Latest Oracle Java")
+declare -ar JAVA6=("1.6" "java6" "Oracle Java 6" "caskroom/versions")
+declare -ar JAVA8=("1.8" "java8" "Oracle Java 8" "caskroom/versions")
+declare -ar LATEST_JAVA=("" "java" "Latest Oracle Java" "caskroom/cask")
 
 declare -r DEFAULT_JDK="${JAVA8[0]}"
 
@@ -18,9 +18,9 @@ declare -r DEFAULT_JDK="${JAVA8[0]}"
 
 install_java() {
 
-    brew_install "${JAVA6[2]}" "${JAVA6[1]}" "caskroom/cask" "cask"
-    brew_install "${JAVA8[2]}" "${JAVA8[1]}" "caskroom/cask" "cask"
-    brew_install "${LATEST_JAVA[2]}" "${LATEST_JAVA[1]}" "caskroom/cask" "cask"
+    brew_install "${JAVA6[2]}" "${JAVA6[1]}" "${JAVA6[3]}" "cask"
+    brew_install "${JAVA8[2]}" "${JAVA8[1]}" "${JAVA8[3]}" "cask"
+    brew_install "${LATEST_JAVA[2]}" "${LATEST_JAVA[1]}" "${LATEST_JAVA[3]}" "cask"
 
 }
 
