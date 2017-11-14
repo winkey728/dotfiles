@@ -41,7 +41,7 @@ change_default_shell() {
     if ! file_contains_string "$newShellPath" "/etc/shells"; then
         execute \
             "printf '%s\n' '$newShellPath' | sudo tee -a /etc/shells" \
-            "Bash (add '$newShellPath' in '/etc/shells')" \
+            "Zsh (add '$newShellPath' in '/etc/shells')" \
             || return 1
     fi
 
