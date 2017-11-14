@@ -135,6 +135,20 @@ download_utils() {
 
 }
 
+extract() {
+
+    local archive="$1"
+    local outputDir="$2"
+
+    if command -v "tar" &> /dev/null; then
+        tar -zxf "$archive" --strip-components 1 -C "$outputDir"
+        return $?
+    fi
+
+    return 1
+
+}
+
 verify_os() {
 
     local os_name=""
