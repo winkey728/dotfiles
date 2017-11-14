@@ -92,7 +92,8 @@ manage_jdk_with_jenv() {
         # existing jdk
 
         execute \
-            "printf \"yyy\" | jenv add $jdk/Contents/Home" \
+            ". $LOCAL_SHELL_CONFIG_FILE \
+                && printf \"yyy\" | jenv add $jdk/Contents/Home" \
             "jenv (add $jdk to jenv)"
 
     done
@@ -102,7 +103,8 @@ manage_jdk_with_jenv() {
 set_default_jdk() {
 
     execute \
-        "jenv global $DEFAULT_JDK" \
+        ". $LOCAL_SHELL_CONFIG_FILE \
+            && jenv global $DEFAULT_JDK" \
         "Jenv (set default jdk to $DEFAULT_JDK)"
 
 }
