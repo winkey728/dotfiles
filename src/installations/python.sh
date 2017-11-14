@@ -35,14 +35,11 @@ install_python() {
 
         if ! (pyenv versions | grep "$py" &> /dev/null); then
 
-            # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
             # Use openssl library installed by Homebrew/Linuxbrew
             # https://github.com/pyenv/pyenv/wiki/Common-build-problems#error-the-python-ssl-extension-was-not-compiled-missing-the-openssl-lib
 
             execute \
-                "setup_pyenv_env \
-                    CFLAGS=\"-I\$(brew --prefix openssl)/include\" \
+                "CFLAGS=\"-I\$(brew --prefix openssl)/include\" \
                     LDFLAGS=\"-L\$(brew --prefix openssl)/lib\" \
                     pyenv install -v $py" \
                 "Python (install $py)"
@@ -56,7 +53,7 @@ install_python() {
 set_default_python() {
 
     execute \
-        "setup_pyenv_env && pyenv global $DEFAULT_PYTHON" \
+        "pyenv global $DEFAULT_PYTHON" \
         "Setup default python version ($DEFAULT_PYTHON)"
 
 }
@@ -71,7 +68,7 @@ install_global_packages() {
     for p in "${GLOBAL_PACKAGES[@]}"; do
 
         execute \
-            "setup_pyenv_env && pip install $p" \
+            "pip install $p" \
             "Install package $p"
 
     done
@@ -85,6 +82,7 @@ main() {
     print_in_purple "\n   Python\n\n"
 
     brew_install "pyenv" "pyenv" \
+        && setup_pyenv_env \
         && install_python \
         && set_default_python \
         && install_global_packages
