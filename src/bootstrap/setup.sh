@@ -115,7 +115,7 @@ download_dotfiles() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    cd "$dotfilesDirectory/src/os" \
+    cd "$dotfilesDirectory/src/bootstrap" \
         || return 1
 
 }
