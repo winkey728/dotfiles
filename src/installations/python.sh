@@ -15,6 +15,20 @@ declare -r DEFAULT_PYTHON="${PYTHON_VERIONS[0]}"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+setup_pyenv_env() {
+
+    local pyenvdir=$(brew --prefix pyenv 2> /dev/null)
+
+    if [ $? -eq 0 -a -d $pyenvdir/bin ] ; then
+
+        export PYENV_ROOT=$pyenvdir
+        export PATH=${pyenvdir}/bin:$PATH
+        eval "$(pyenv init - zsh)"
+
+    fi
+
+}
+
 install_python() {
 
     for py in "${PYTHON_VERIONS[@]}"; do
@@ -27,7 +41,8 @@ install_python() {
             # https://github.com/pyenv/pyenv/wiki/Common-build-problems#error-the-python-ssl-extension-was-not-compiled-missing-the-openssl-lib
 
             execute \
-                "CFLAGS=\"-I\$(brew --prefix openssl)/include\" \
+                "setup_pyenv_env \
+                    CFLAGS=\"-I\$(brew --prefix openssl)/include\" \
                     LDFLAGS=\"-L\$(brew --prefix openssl)/lib\" \
                     pyenv install -v $py" \
                 "Python (install $py)"
@@ -35,20 +50,6 @@ install_python() {
         fi
 
     done
-
-}
-
-setup_pyenv_env() {
-
-    local pyenvdir=$(brew --prefix pyenv 2> /dev/null)
-
-    if [ $? -eq 0 -a -d $pyenvdir/bin ] ; then
-
-        export PYENV_ROOT=$pyenvdir
-        export PATH=${pyenvdir}/bin:$PATH
-        eval "$(pyenv init - zsh)"
-
-    fi
 
 }
 
