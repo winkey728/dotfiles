@@ -38,10 +38,24 @@ install_python() {
 
 }
 
+setup_pyenv_env() {
+
+    local pyenvdir=$(brew --prefix pyenv 2> /dev/null)
+
+    if [ $? -eq 0 -a -d $pyenvdir/bin ] ; then
+
+        export PYENV_ROOT=$pyenvdir
+        export PATH=${pyenvdir}/bin:$PATH
+        eval "$(pyenv init - zsh)"
+
+    fi
+
+}
+
 set_default_python() {
 
     execute \
-        "pyenv global $DEFAULT_PYTHON" \
+        "setup_pyenv_env && pyenv global $DEFAULT_PYTHON" \
         "Setup default python version ($DEFAULT_PYTHON)"
 
 }
@@ -56,7 +70,7 @@ install_global_packages() {
     for p in "${GLOBAL_PACKAGES[@]}"; do
 
         execute \
-            "pip install $p" \
+            "setup_pyenv_env && pip install $p" \
             "Install package $p"
 
     done
