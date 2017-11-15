@@ -8,7 +8,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 main() {
 
-    print_in_purple "\n   Misc APPs"
+    print_in_purple "\n   Misc Applications\n\n"
 
     brew_install "Alfred" "alfred" "caskroom/cask" "cask"
     brew_install "AppZapper" "appzapper" "caskroom/cask" "cask"

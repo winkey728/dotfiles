@@ -115,7 +115,7 @@ set_default_jdk() {
 
 main() {
 
-    print_in_purple "\n Java\n\n"
+    print_in_purple "\n   Java\n\n"
 
     install_java
 

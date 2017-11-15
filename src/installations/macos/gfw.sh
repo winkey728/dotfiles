@@ -41,7 +41,7 @@ socks5 $DEFAULT_SOCKS5_HOST $DEFAULT_SOCKS5_PORT
 
 main() {
 
-    print_in_purple "\n   GFW\n\n"
+    print_in_purple "\n   GFW Applications\n\n"
 
     brew_install "ShadowsocksX-NG" "shadowsocksx-ng" "caskroom/cask" "cask"
 

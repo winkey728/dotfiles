@@ -8,7 +8,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 main() {
 
-    print_in_purple "\n Email Tools\n\n"
+    print_in_purple "\n   Email Applications\n\n"
 
     brew_install "Netease MailMaster" "mailmaster" "caskroom/cask" "cask"
 

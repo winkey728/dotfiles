@@ -8,7 +8,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 main() {
 
-    print_in_purple "\n   Network Disks\n\n"
+    print_in_purple "\n   Network Disk Applications\n\n"
 
     brew_install "Dropbox" "dropbox" "caskroom/cask" "cask"
     brew_install "Nutstore" "nutstore" "caskroom/cask" "cask"
