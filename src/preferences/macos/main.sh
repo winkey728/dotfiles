@@ -15,6 +15,7 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+    ./security_and_privacy.sh
     ./appstore.sh
     ./dock.sh
     ./language_and_region.sh
