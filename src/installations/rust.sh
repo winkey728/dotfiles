@@ -15,9 +15,12 @@ declare -r DEFAULT_TOOLCHAIN="stable"
 rust_install() {
 
     execute \
-        "rustup-init -y --default-toolchain $DEFAULT_TOOLCHAIN \
-                     && rustup component add rust-src" \
-        "Rust (install rustc, cargo, rustup and download rust-src)"
+        "rustup-init -y --default-toolchain $DEFAULT_TOOLCHAIN" \
+        "Rust (install rustc, cargo, rustup)"
+
+    execute \
+        "rustup component add rust-src" \
+        "Rust (download source code)"
 
 }
 
