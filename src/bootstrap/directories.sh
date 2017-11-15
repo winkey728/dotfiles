@@ -3,22 +3,18 @@
 cd "$(dirname "${BASH_SOURCE[0]}")" \
     && . "utils.sh"
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-declare -ar DIRECTORIES=(
-    "$HOME/Projects/clone"
-    "$Home/Projects/temp"
-)
-
 # ----------------------------------------------------------------------
 # | Helper functions                                                   |
 # ----------------------------------------------------------------------
 
 create_directories() {
 
-    local d=""
+    declare -ar DIRECTORIES=(
+        "$HOME/Projects/clone"
+        "$Home/Projects/temp"
+    )
 
-    for d in "$DIRECTORIES"; do
+    for d in "${DIRECTORIES[@]}"; do
         mkd "$i"
     done
 
