@@ -18,10 +18,6 @@ rust_install() {
         "rustup-init -y --default-toolchain $DEFAULT_TOOLCHAIN" \
         "Rust (install rustc, cargo, rustup)"
 
-    execute \
-        "rustup component add rust-src" \
-        "Rust (download source code)"
-
 }
 
 add_rust_config() {
@@ -47,6 +43,15 @@ fi
 
 }
 
+download_source_code() {
+
+    execute \
+        ". $LOCAL_SHELL_CONFIG_FILE \
+            && rustup component add rust-src" \
+        "Rust (download source code)"
+
+}
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 main() {
@@ -55,7 +60,8 @@ main() {
 
     brew_install "rustup-init" "rustup-init" \
         && rust_install \
-        && add_rust_config
+        && add_rust_config \
+        && download_source_code
 
 }
 
