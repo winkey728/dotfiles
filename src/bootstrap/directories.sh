@@ -11,11 +11,11 @@ create_directories() {
 
     declare -ar DIRECTORIES=(
         "$HOME/Projects/clone"
-        "$Home/Projects/temp"
+        "$HOME/Projects/temp"
     )
 
     for d in "${DIRECTORIES[@]}"; do
-        mkd "$i"
+        mkd "$d"
     done
 
 }
