@@ -19,6 +19,8 @@ main() {
     brew_install "FUSE" "osxfuse" "caskroom/cask" "cask"
     brew_install "CleanMyMac" "cleanmymac" "caskroom/cask" "cask"
 
+    appstore_install "itunes.apple.com/cn/app/id1127253508" "DrUnarchiver"
+
 }
 
 main "$@"
