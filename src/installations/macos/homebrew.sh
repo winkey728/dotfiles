@@ -6,22 +6,6 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-get_homebrew_git_config_file_path() {
-
-    local path=""
-
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    if path="$(brew --repository 2> /dev/null)/.git/config"; then
-        printf "%s" "$path"
-        return 0
-    else
-        print_error "Homebrew (get config file path)"
-        return 1
-    fi
-
-}
-
 install_homebrew() {
 
     if ! cmd_exists "brew"; then

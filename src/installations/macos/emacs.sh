@@ -17,16 +17,6 @@ declare -r SPACEMACS_DOT_D_DIRECTORY="$HOME/.spacemacs.d"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-linkapps_emacs() {
-
-    execute \
-        "brew linkapps emacs" \
-        "Emacs (linkapps)"
-
-}
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 install_spacemacs() {
 
     local dir="$1"
@@ -107,8 +97,7 @@ main() {
 
     print_in_purple "\n   Emacs\n\n"
 
-    brew_install "Emacsa (install)" "emacs --with-cocoa --with-gnutls --with-rsvg --with-imagemagick" \
-        && linkapps_emacs
+    brew_install "Emacs" "emacs-mac" "railwaycat/emacsmacport" "cask"
 
     setup_spacemacs
     setup_my_config
