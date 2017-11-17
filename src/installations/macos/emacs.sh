@@ -97,7 +97,7 @@ main() {
 
     print_in_purple "\n   Emacs\n\n"
 
-    brew_install "Emacs" "emacs-mac" "railwaycat/emacsmacport" "cask"
+    brew_install "Emacs" "emacs" "caskroom/cask" "cask"
 
     setup_spacemacs
     setup_my_config
