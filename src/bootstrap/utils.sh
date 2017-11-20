@@ -13,7 +13,7 @@ ask() {
 
 ask_password() {
     print_question "$1"
-    read -s 1
+    read -s
     printf "\n"
 }
 

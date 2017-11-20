@@ -10,17 +10,17 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 has_github_certificate() {
 
     local credential="$(get_git_credential)" \
-        || return 1
+        || return 0
 
     if printf "protocol=https\nhost=github.com\n\n" \
             | git credential-$credential get \
        &> /dev/null; then
 
-        return 0
+        return 1
 
     else
 
-        return 1
+        return 0
 
     fi
 
@@ -63,14 +63,14 @@ set_github_certificate() {
 
 main() {
 
+    print_in_purple "\n • Update content\n\n"
+
     if ! has_github_certificate; then
 
         set_github_certificate \
             || return 1
 
     fi
-
-    print_in_purple "\n • Update content\n\n"
 
     ask_for_confirmation "Do you want to update the content from the 'dotfiles' directory?"
 
