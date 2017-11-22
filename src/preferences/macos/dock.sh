@@ -46,6 +46,10 @@ main() {
         "Set default icon size"
 
     execute \
+        "defaults write com.apple.dock magnification -bool true" \
+        "Enable magnification"
+
+    execute \
         "defaults write com.apple.dock largesize -int 72" \
         "Set large icon size"
 

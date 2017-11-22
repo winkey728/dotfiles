@@ -14,7 +14,7 @@ main() {
         "Set region"
 
     execute \
-        "defaults write -g AppleLanguages -array '(\"zh-Hans-CN\", \"en-CN\")'" \
+        "defaults write -g AppleLanguages -array 'zh-Hans-CN' 'en-CN'" \
         "Set language"
 
     execute \

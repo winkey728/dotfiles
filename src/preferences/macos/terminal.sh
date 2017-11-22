@@ -17,6 +17,10 @@ main() {
         "defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true" \
         "Load preferences from custom folder for iTerm"
 
+    execute \
+        "defaults write com.googlecode.iterm2 AllowClipboardAccess -bool true" \
+        "Applications in iTerm may access clipboard"
+
     killall "iTerm" &> /dev/null
 
 }
