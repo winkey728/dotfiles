@@ -1,5 +1,17 @@
 # Auto generated zsh functions
 src/symlinks/zsh/zfunc/_*
 
-#Emacs
+# Emacs
 *.*#*
+
+# Vim
+src/symlinks/vim/vim/autoload/*
+!src/symlinks/vim/vim/autoload/.gitkeep
+src/symlinks/vim/vim/plugged/*
+!src/symlinks/vim/vim/plugged/.gitkeep
+src/symlinks/vim/vim/backups/*
+!src/symlinks/vim/vim/backups/.gitkeep
+src/symlinks/vim/vim/swaps/*
+!src/symlinks/vim/vim/swaps/.gitkeep
+src/symlinks/vim/vim/undos/*
+!src/symlinks/vim/vim/undos/.gitkeep

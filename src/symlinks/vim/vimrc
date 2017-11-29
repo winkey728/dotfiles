@@ -1,0 +1,156 @@
+" ----------------------------------------------------------------------
+" | Plugins                                                            |
+" ----------------------------------------------------------------------
+
+call plug#begin('~/.vim/plugged')
+
+" ----------------------------------------------------------------------
+" | Plugins - Sensible                                                 |
+" ----------------------------------------------------------------------
+Plug 'tpope/vim-sensible'
+
+" ----------------------------------------------------------------------
+" | Plugins - Auto Indention                                           |
+" ----------------------------------------------------------------------
+Plug 'tpope/vim-sleuth'
+
+" ----------------------------------------------------------------------
+" | Plugins - Theme                                                    |
+" ----------------------------------------------------------------------
+Plug 'lifepillar/vim-solarized8'
+
+" ----------------------------------------------------------------------
+" | Plugins - Highlight                                                |
+" ----------------------------------------------------------------------
+Plug 'sheerun/vim-polyglot'
+Plug 'w0rp/ale'
+
+let g:ale_linters = {
+\	'javascript': ['eslint'],
+\	'css': ['stylelint'],
+\}
+let g:ale_fixers = {
+\	'javascript': ['eslint'],
+\	'css': ['stylelint'],
+\}
+let g:ale_fix_on_save = 1
+
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = '●'
+let g:ale_sign_warning = '▶'
+
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+" ----------------------------------------------------------------------
+" | Plugins - Search                                                   |
+" ----------------------------------------------------------------------
+Plug 'rking/ag.vim'
+Plug 'kien/ctrlp.vim'
+
+let g:ag_highlight=1
+let g:ag_working_path_mode="r"
+
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe
+
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](node_modules|DS_Store|dist|build|coverage)|(\.(git|hg|svn)$)',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ }
+
+" ----------------------------------------------------------------------
+" | Plugins - Modeline                                                 |
+" ----------------------------------------------------------------------
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+let g:airline_theme='powerlineish'
+
+" ----------------------------------------------------------------------
+" | Plugins - Code Comment                                             |
+" ----------------------------------------------------------------------
+Plug 'scrooloose/nerdcommenter'
+
+let g:NERDSpaceDelims = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDCustomDelimiters = {
+			\ 'javascript': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
+			\ 'less': { 'left': '/*', 'right': '*/' }
+		\ }
+
+let g:NERDAltDelims_javascript = 1
+let g:NERDDefaultNesting = 0
+
+" ----------------------------------------------------------------------
+" | Plugins - Gid                                                      |
+" ----------------------------------------------------------------------
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+
+call plug#end()
+
+
+" ----------------------------------------------------------------------
+" | General Settings                                                   |
+" ----------------------------------------------------------------------
+
+set backspace=indent           " ┐
+set backspace+=eol             " │ Allow `backspace`
+set backspace+=start           " ┘ in insert mode.
+
+set backupdir=~/.vim/backups   " Set directory for backup files.
+
+set backupskip=/tmp/*          " ┐ Don't create backups
+set backupskip+=/private/tmp/* " ┘ for certain files.
+
+set clipboard=unnamed          " ┐
+                               " │ Use the system clipboard
+if has("unnamedplus")          " │ as the default register.
+    set clipboard+=unnamedplus " │
+endif                          " ┘
+
+set cursorline                 " Highlight the current line.
+
+set colorcolumn=80             " Highlight certain column(s).
+
+set directory=~/.vim/swaps     " Set directory for swap files.
+
+set encoding=utf-8 nobomb      " Use UTF-8 without BOM.
+
+set hlsearch                   " Enable search highlighting.
+set ignorecase                 " Ignore case in search patterns.
+
+set incsearch                  " Highlight search pattern
+                               " as it is being typed.
+
+set history=5000               " Increase command line history.
+
+set listchars=tab:▸\           " ┐
+set listchars+=trail:·         " │ Use custom symbols to
+set listchars+=eol:↴           " │ represent invisible characters.
+set listchars+=nbsp:_          " ┘
+
+set nostartofline              " Kept the cursor on the same column.
+
+set number                     " Show line number.
+set numberwidth=5              " Increase the minimal number of
+                               " columns used for the `line number`.
+
+set showcmd                    " Show the command being typed.
+set showmode                   " Show current mode.
+
+set scrolloff=5                " When scrolling, keep the cursor
+                               " 5 lines below the top and 5 lines
+                               " above the bottom of the screen.
+
+set synmaxcol=2500             " Limit syntax highlighting (this
+                               " avoids the very slow redrawing
+                               " when files contain long lines).
+
+set smartcase                  " Override `ignorecase` option
+                               " if the search pattern contains
+                               " uppercase characters.
+
+set background=dark            " Set theme color.
+colorscheme solarized8         " Set theme name.

@@ -20,6 +20,9 @@ declare -ar FILES_TO_SYMLINK=(
     "npm/npmrc"
 
     "iterm/iTerm"
+
+    "vim/vim"
+    "vim/vimrc"
 )
 
 # ----------------------------------------------------------------------
