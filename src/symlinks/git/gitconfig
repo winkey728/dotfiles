@@ -111,6 +111,7 @@
     autocrlf = input
     editor = vim
     excludesfile = ~/.gitignore
+    quotepath = false
 
 [diff "bin"]
 
