@@ -1,0 +1,78 @@
+function qsup() {
+
+    local now="$(date +'%Y-%m-%d')"
+    local bucket="projects"
+    local srcDir="$HOME/Documents/qiniu"
+    local logFile="/usr/local/var/log/qiniu/upload-${now}.log"
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    # Parse arguments
+
+    while :; do
+        case $1 in
+            -b|--bucket)
+                shift 1
+                bucket="$1"
+                ;;
+            -s|--source)
+                shift 1
+                srcDir="$1"
+                ;;
+            -l|--log)
+                shift 1
+                logFile="$1"
+                ;;
+            -h|--help)
+                printf "%s\n" \
+"
+Upload data to Qiniu, base on qshell command.
+
+Usage:
+    qup [<Option>] [<Option Value>]
+
+Options:
+    -b, --bucket        Bucket name which the data to upload. Default: projects
+    -s, --source        Local directory contains the data, FULL PATH only. Default: $HOME/Documents/qiniu
+    -l, --log           Log file. Default: /var/log/qiniu/upload-${now}.log
+"
+                return 0
+                ;;
+            *)
+                break
+                ;;
+        esac
+        shift 1
+    done
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    local conf=\
+"
+{
+   \"src_dir\"            :   \"${srcDir}\",
+   \"bucket\"             :   \"${bucket}\",
+   \"key_prefix\"         :   \"\",
+   \"ignore_dir\"         :   false,
+   \"overwrite\"          :   true,
+   \"check_exists\"       :   true,
+   \"check_hash\"         :   true,
+   \"check_size\"         :   false,
+   \"rescan_local\"       :   true,
+   \"skip_file_prefixes\" :   \"test,demo,\",
+   \"skip_path_prefixes\" :   \"test/,temp/\",
+   \"skip_fixed_strings\" :   \".svn,.git\",
+   \"skip_suffixes\"      :   \".DS_Store,.exe\",
+   \"log_file\"           :   \"${logFile}\",
+   \"log_level\"          :   \"info\",
+   \"log_rotate\"         :   1,
+   \"log_stdout\"         :   false,
+   \"file_type\"          :   0
+}
+"
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    printf "%s" "${conf}" | qshell qupload /dev/stdin
+
+}

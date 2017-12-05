@@ -10,8 +10,12 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 create_directories() {
 
     declare -ar DIRECTORIES=(
+        "$HOME/bin"
         "$HOME/Projects/clone"
         "$HOME/Projects/temp"
+
+        "$HOME/Documents/qiniu"
+        "/usr/local/var/log/qiniu"
     )
 
     for d in "${DIRECTORIES[@]}"; do

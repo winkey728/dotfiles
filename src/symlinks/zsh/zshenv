@@ -34,6 +34,7 @@ source_zsh_files() {
         "zconf/aliases/$OS/aliases.zsh"
         "zconf/exports.zsh"
         "zconf/fpath.zsh"
+        "zconf/functions.zsh"
         "zconf/keybindings.zsh"
         "zconf/options.zsh"
         "zsh.local" # For local settings that should

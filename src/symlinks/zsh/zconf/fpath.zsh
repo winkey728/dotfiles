@@ -1,4 +1,4 @@
 fpath=(
     $HOME/.zfunc
-    $fpath
+    "${fpath[@]}"
 )
