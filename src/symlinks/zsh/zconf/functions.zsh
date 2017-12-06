@@ -29,7 +29,7 @@ function qsup() {
 Upload data to Qiniu, base on qshell command.
 
 Usage:
-    qup [<Option>] [<Option Value>]
+    qsup [<Option>] [<Option Value>]
 
 Options:
     -b, --bucket        Bucket name which the data to upload. Default: projects
@@ -74,5 +74,76 @@ Options:
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     printf "%s" "${conf}" | qshell qupload /dev/stdin
+
+}
+
+function qsdl() {
+
+    local now="$(date +'%Y-%m-%d')"
+    local bucket="projects"
+    local destDir="$HOME/Documents/qiniu"
+    local logFile="/usr/local/var/log/qiniu/upload-${now}.log"
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    # Parse arguments
+
+    while :; do
+        case $1 in
+            -b|--bucket)
+                shift 1
+                bucket="$1"
+                ;;
+            -d|--destination)
+                shift 1
+                destDir="$1"
+                ;;
+            -l|--log)
+                shift 1
+                logFile="$1"
+                ;;
+            -h|--help)
+                printf "%s\n" \
+"
+Download data from Qiniu, base on qshell command.
+
+Usage:
+    qsdl [<Option>] [<Option Value>]
+
+Options:
+    -b, --bucket        Bucket name which the data to download. Default: projects
+    -d, --destination   Local directory receives the data, FULL PATH only. Default: $HOME/Documents/qiniu
+    -l, --log           Log file. Default: /var/log/qiniu/upload-${now}.log
+"
+                return 0
+                ;;
+            *)
+                break
+                ;;
+        esac
+        shift 1
+    done
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    local conf=\
+"
+{
+   \"dest_dir\"           :   \"${destDir}\",
+   \"bucket\"             :   \"${bucket}\",
+   \"prefix\"             :   \"\",
+   \"suffixes\"           :   \".png,.jpg,.jpeg,.gif\",
+   \"cdn_domain\"         :   \"source.winkey.xyz\",
+   \"referer\"            :   \"\",
+   \"log_file\"           :   \"${logFile}\",
+   \"log_level\"          :   \"info\",
+   \"log_rotate\"         :   1,
+   \"log_stdout\"         :   false
+}
+"
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    printf "%s" "${conf}" | qshell qdownload /dev/stdin
 
 }
