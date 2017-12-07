@@ -5,13 +5,12 @@ src/symlinks/zsh/zfunc/_*
 *.*#*
 
 # Vim
-src/symlinks/vim/vim/autoload/*
-!src/symlinks/vim/vim/autoload/.gitkeep
-src/symlinks/vim/vim/plugged/*
-!src/symlinks/vim/vim/plugged/.gitkeep
-src/symlinks/vim/vim/backups/*
-!src/symlinks/vim/vim/backups/.gitkeep
-src/symlinks/vim/vim/swaps/*
-!src/symlinks/vim/vim/swaps/.gitkeep
-src/symlinks/vim/vim/undos/*
-!src/symlinks/vim/vim/undos/.gitkeep
+src/symlinks/vim/vim/**
+!src/symlinks/vim/vim/*/
+
+# Tmux
+src/symlinks/tmux/tmux/plugins/**
+src/symlinks/tmux/tmux/resurrect
+
+# Ignore .gitkeep file
+!.gitkeep

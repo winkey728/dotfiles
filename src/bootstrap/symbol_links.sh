@@ -23,6 +23,9 @@ declare -ar FILES_TO_SYMLINK=(
 
     "vim/vim"
     "vim/vimrc"
+
+    "tmux/tmux"
+    "tmux/tmux.conf"
 )
 
 # ----------------------------------------------------------------------
