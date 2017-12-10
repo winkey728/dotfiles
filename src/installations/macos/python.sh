@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 
 cd "$(dirname "${BASH_SOURCE[0]}")" \
-    && . "../bootstrap/utils.sh" \
+    && . "../../bootstrap/utils.sh" \
     && . "utils.sh"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 main() {
 
-    print_in_purple "\n   UML\n\n"
-
-    brew_install "PlantUML" "plantuml"
+    brew_install "Python 2" "python"
+    brew_install "Python 3" "python3"
+    brew_install "Pipenv" "pipenv"
 
 }
 

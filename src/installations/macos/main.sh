@@ -18,15 +18,16 @@ main() {
     # Development tools
 
     ../zsh.sh
-    ../git.sh
+    ./git.sh
     ../vim.sh
-    ../command_line_tools.sh
+    ./command_line_tools.sh
     ./java.sh
     ../rust.sh
     ../python.sh
     ../nodejs.sh
-    ../shell-script.sh
-    ../uml.sh
+    ./shell-script.sh
+    ./uml.sh
+    ../tmux.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

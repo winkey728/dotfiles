@@ -8,9 +8,9 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 main() {
 
-    print_in_purple "\n   Email Applications\n\n"
+    print_in_purple "\n   UML\n\n"
 
-    brew_install "Netease MailMaster" "mailmaster" "caskroom/cask" "cask"
+    brew_install "PlantUML" "plantuml"
 
 }
 

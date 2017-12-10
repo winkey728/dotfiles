@@ -1,18 +1,9 @@
 #!/usr/bin/env bash
 
 cd "$(dirname "${BASH_SOURCE[0]}")" \
-    && . "../bootstrap/utils.sh"
+    && . "../../bootstrap/utils.sh"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-declare BREW_NAME="Homebrew"
-declare IS_HOMEBREW=true
-
-test "$(get_os)" == "ubuntu" \
-    && declare -r BREW_NAME="Linuxbrew" \
-    && declare -r IS_HOMEBREW=false
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 brew_cleanup() {
 
@@ -26,13 +17,9 @@ brew_cleanup() {
         "brew cleanup" \
         "$BREW_NAME (cleanup)"
 
-    if $IS_HOMEBREW; then
-
-        execute \
-            "brew cask cleanup" \
-            "$BREW_NAME (cask cleanup)"
-
-    fi
+    execute \
+        "brew cask cleanup" \
+        "$BREW_NAME (cask cleanup)"
 
 }
 

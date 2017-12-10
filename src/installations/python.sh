@@ -1,75 +1,59 @@
 #!/usr/bin/env bash
 
 cd "$(dirname "${BASH_SOURCE[0]}")" \
-    && . "../bootstrap/utils.sh" \
-    && . "utils.sh"
+    && . "../bootstrap/utils.sh"
+
+declare -r ZSH_ENV_FILE="$HOME/.zshenv"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-declare -ar PYTHON_VERIONS=(
-    "3.6.3"
-    "2.7.14"
-)
+pip_install() {
 
-declare -r DEFAULT_PYTHON="${PYTHON_VERIONS[0]}"
+    declare -r READABLE_NAME="$1"
+    declare -r PACKAGE_NAME="$2"
+    declare -r PIP_VERSION="$3"
+    declare -r OPT="$4"
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    if [ -z "$PIP_VERSION" ]; then
+        PIP_VERSION="2"
+    fi
 
-setup_pyenv_env() {
-
-    local pyenvdir=$(brew --prefix pyenv 2> /dev/null)
-
-    if [ $? -eq 0 -a -d $pyenvdir/bin ] ; then
-
-        export PYENV_ROOT=$pyenvdir
-        export PATH=${pyenvdir}/bin:$PATH
-        eval "$(pyenv init - zsh)"
-
+    if pip"$PIP_VERSION" list --format=legacy | grep "$PACKAGE_NAME" &> /dev/null; then
+        print_success "$READABLE_NAME <pip$PIP_VERSION>"
+    else
+        execute \
+            "pip$PIP_VERSION install $OPT $PACKAGE_NAME" \
+            "$READABLE_NAME <pip$PIP_VERSION>"
     fi
 
 }
 
-install_python() {
+update_basic_packages() {
 
-    for py in "${PYTHON_VERIONS[@]}"; do
+    declare -ar PACKAGES=(
+        "pip"
+        "setuptools"
+    )
 
-        if ! (pyenv versions | grep "$py" &> /dev/null); then
+    for p in "${PACKAGES[@]}"; do
 
-            # Use openssl library installed by Homebrew/Linuxbrew
-            # https://github.com/pyenv/pyenv/wiki/Common-build-problems#error-the-python-ssl-extension-was-not-compiled-missing-the-openssl-lib
-
-            execute \
-                "CFLAGS=\"-I\$(brew --prefix openssl)/include\" \
-                    LDFLAGS=\"-L\$(brew --prefix openssl)/lib\" \
-                    pyenv install -v $py" \
-                "Python (install $py)"
-
-        fi
+        pip_install "$p (update)" "$p" "2" "--upgrade"
+        pip_install "$p (update)" "$p" "3" "--upgrade"
 
     done
 
 }
 
-set_default_python() {
-
-    execute \
-        "pyenv global $DEFAULT_PYTHON" \
-        "Setup default python version ($DEFAULT_PYTHON)"
-
-}
-
 install_global_packages() {
 
-    declare -ar GLOBAL_PACKAGES=(
+    declare -ar PACKAGES=(
         "isort"
         "autoflake"
     )
 
-    for p in "${GLOBAL_PACKAGES[@]}"; do
+    for p in "${PACKAGES[@]}"; do
 
-        execute \
-            "pip install $p" \
-            "Install package $p"
+        pip_install "$p (install)" "$p" "3"
 
     done
 
@@ -81,13 +65,10 @@ main() {
 
     print_in_purple "\n   Python\n\n"
 
-    brew_install "pyenv" "pyenv" \
-        && setup_pyenv_env \
-        && install_python \
-        && set_default_python \
-        && install_global_packages
+    . "$(get_os)/python.sh"
 
-    brew_install "pipenv" "pipenv"
+    update_basic_packages
+    install_global_packages
 
 }
 

@@ -78,7 +78,6 @@ plugins=(
     # Python
     pip
     python
-    pyenv
 
     # Rust
     cargo
