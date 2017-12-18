@@ -131,8 +131,12 @@ get_os() {
 
     if [ "$kernelName" == "Darwin" ]; then
         os="macos"
-    elif [ "$kernelName" == "Linux" ] && [ -e "/etc/lsb-release" ]; then
-        os="ubuntu"
+    elif [ "$kernelName" == "Linux" ] && cmd_exists "lsb_release"; then
+        if [[ "$(lsb_release -si)" =~ "Manjaro" ]]; then
+            os="manjaro"
+        else
+            os="$kernelName"
+        fi
     else
         os="$kernelName"
     fi
@@ -152,8 +156,8 @@ get_os_version() {
 
     if [ "$os" == "macos" ]; then
         version="$(sw_vers -productVersion)"
-    elif [ "$os" == "ubuntu" ]; then
-        version="$(lsb_release -d | cut -f2 | cut -d' ' -f2)"
+    elif [ "$os" == "manjaro" ]; then
+        version="$(lsb_release -sr)"
     fi
 
     printf "%s" "$version"
@@ -183,9 +187,12 @@ is_supported_version() {
             v2[i]=0
         fi
 
-        if (( 10#${v1[i]} < 10#${v2[i]} )); then
+        local v1i=`printf "%d" ${v1[i]} 2> /dev/null`
+        local v2i=`printf "%d" ${v2[i]} 2> /dev/null`
+
+        if (( 10#${v1i} < 10#${v2i} )); then
             return 1
-        elif (( 10#${v1[i]} > 10#${v2[i]} )); then
+        elif (( 10#${v1i} > 10#${v2i} )); then
             return 0
         fi
 

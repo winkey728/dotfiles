@@ -9,7 +9,7 @@ declare -r DOTFILES_UTILS_URL="https://raw.githubusercontent.com/$GITHUB_REPOSIT
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 declare -r MINIMUM_MACOS_VERSION="10.10"
-declare -r MINIMUM_UBUNTU_VERSION="14.04"
+declare -r MINIMUM_MANJARO_VERSION="17.0.6"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -173,17 +173,19 @@ verify_os() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    # Check if the OS is `Ubuntu` and
-    # it's above the required version.
+    # Check if the OS is `Manjaro` and
+    # it's above the required version
 
-    elif [ "$os_name" == "Linux" ] && [ -e "/etc/lsb-release" ]; then
+    elif [ "${os_name}" == "Linux" ] \
+             && cmd_exists "lsb_release" \
+             && [[ "$(lsb_release -si)" =~ "Manjaro"]]; then
 
-        os_version="$(lsb_release -d | cut -f2 | cut -d' ' -f2)"
+        os_version="$(lsb_release -sr)"
 
         if is_supported_version "$os_version" "$MINIMUM_UBUNTU_VERSION"; then
             return 0
         else
-            printf "Sorry, this script is intended only for Ubuntu %s+" "$MINIMUM_UBUNTU_VERSION"
+            printf "Sorry, this script is intended only for Manjaro %s+" "$MINIMUM_MANJARO_VERSION"
         fi
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
