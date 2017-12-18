@@ -15,11 +15,11 @@ brew_cleanup() {
 
     execute \
         "brew cleanup" \
-        "$BREW_NAME (cleanup)"
+        "Homebrew (cleanup)"
 
     execute \
         "brew cask cleanup" \
-        "$BREW_NAME (cask cleanup)"
+        "Homebrew (cask cleanup)"
 
 }
 
@@ -35,7 +35,7 @@ brew_install() {
     # Check if `Homebrew` is installed.
 
     if ! cmd_exists "brew"; then
-        print_error "$FORMULA_READABLE_NAME ('$BREW_NAME' is not installed)"
+        print_error "$FORMULA_READABLE_NAME ('Homebrew' is not installed)"
         return 1
     fi
 
@@ -76,7 +76,7 @@ brew_prefix() {
         printf "%s" "$path"
         return 0
     else
-        print_error "$BREW_NAME (get prebfix)"
+        print_error "Homebrew (get prebfix)"
         return 1
     fi
 
@@ -92,7 +92,7 @@ brew_update() {
 
     execute \
         "brew update" \
-        "$BREW_NAME (update)"
+        "Homebrew (update)"
 
 }
 
@@ -100,7 +100,7 @@ brew_upgrade() {
 
     execute \
         "brew upgrade" \
-        "$BREW_NAME (upgrade)"
+        "Homebrew (upgrade)"
 
 }
 
