@@ -83,9 +83,15 @@ plugins=(
     cargo
     rust
 
+    # Clojure
+    lein
+
     # MacOS
     brew
     osx
+
+    # Arch Linux
+    archlinux
 
     # Custom Plugins
     zsh-autosuggestions
