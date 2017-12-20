@@ -16,11 +16,11 @@ has_github_certificate() {
             | git credential-$credential get \
        &> /dev/null; then
 
-        return 1
+        return 0
 
     else
 
-        return 0
+        return 1
 
     fi
 
@@ -44,7 +44,7 @@ set_github_certificate() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    ask_password "Please provide your Github password"
+    ask_password "Please provide your Github password: "
     password="$(get_answer)"
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
