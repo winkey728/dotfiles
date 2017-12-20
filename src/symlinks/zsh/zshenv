@@ -1,4 +1,4 @@
-get_os() {
+function get_os() {
 
     local os=""
     local kernelName=""
@@ -7,24 +7,23 @@ get_os() {
 
     kernelName="$(uname -s)"
 
-    case "$kernelName" in
-        Darwin*)
-            os="macos" ;;
-        Linux*)
-            if [ -e "/etc/lsb-release" ]; then
-                os="ubuntu"
-            fi
-            ;;
-        *)
+    if [[ "$kernelName" == "Darwin" ]]; then
+        os="macos"
+    elif [[ "$kernelName" == "Linux" ]] && command -v "lsb_release" &> /dev/null; then
+        if [[ "$(lsb_release -si)" =~ "Manjaro" ]]; then
+            os="manjaro"
+        else
             os="$kernelName"
-            ;;
-    esac
+        fi
+    else
+        os="$kernelName"
+    fi
 
-    printf "%s" "$os"
+   printf "%s" "$os"
 
 }
 
-source_zsh_files() {
+function source_zsh_files() {
 
     declare -r CURRENT_DIRECTORY="$(pwd)"
     declare -r OS="$(get_os)"
@@ -76,4 +75,4 @@ unset -f get_os
 # Clear system messages (system copyright notice, the date
 # and time of the last login, the message of the day, etc.).
 
-clear
+# clear
