@@ -9,7 +9,8 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 install_qshell() {
 
     declare -r QSHELL_URL="https://dn-devtools.qbox.me/2.1.5/qshell-darwin-x64"
-    declare -r QSHELL_BIN="$HOME/bin/qshell"
+    declare -r QSHELL_BIN="$HOME/Projects/qiniu/qshell"
+    declare -r DEST_BIN="$HOME/bin/qshell"
 
     if command -v "curl" &> /dev/null; then
 
@@ -26,6 +27,8 @@ install_qshell() {
     fi
 
     chmod +x "${QSHELL_BIN}"
+
+    ln -fs "${QSHELL_BIN}" "${DEST_BIN}"
 
 }
 
@@ -56,6 +59,7 @@ main() {
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     install_qshell
+
 }
 
 main "$@"

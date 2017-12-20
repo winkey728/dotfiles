@@ -3,7 +3,7 @@ function qsup() {
     local now="$(date +'%Y-%m-%d')"
     local bucket="projects"
     local srcDir="$HOME/Documents/qiniu"
-    local logFile="/usr/local/var/log/qiniu/upload-${now}.log"
+    local logFile="$HOME/Projects/qiniu/runtime/log/upload-${now}.log"
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -82,7 +82,7 @@ function qsdl() {
     local now="$(date +'%Y-%m-%d')"
     local bucket="projects"
     local destDir="$HOME/Documents/qiniu"
-    local logFile="/usr/local/var/log/qiniu/upload-${now}.log"
+    local logFile="$HOME/Projects/qiniu/runtime/log/upload-${now}.log"
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
