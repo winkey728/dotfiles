@@ -178,11 +178,11 @@ verify_os() {
 
     elif [ "${os_name}" == "Linux" ] \
              && cmd_exists "lsb_release" \
-             && [[ "$(lsb_release -si)" =~ "Manjaro"]]; then
+             && [[ "$(lsb_release -si)" =~ "Manjaro" ]]; then
 
         os_version="$(lsb_release -sr)"
 
-        if is_supported_version "$os_version" "$MINIMUM_UBUNTU_VERSION"; then
+        if is_supported_version "$os_version" "$MINIMUM_MANJARO_VERSION"; then
             return 0
         else
             printf "Sorry, this script is intended only for Manjaro %s+" "$MINIMUM_MANJARO_VERSION"
@@ -191,7 +191,7 @@ verify_os() {
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     else
-        printf "Sorry, this script is intended only for macOS and Ubuntu!"
+        printf "Sorry, this script is intended only for macOS and Manjaro!"
     fi
 
     return 1
