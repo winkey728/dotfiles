@@ -379,7 +379,7 @@ file_contains_string() {
 get_git_credential() {
 
     declare -r MACOS_GIT_CREDENTIAL_HELPER="osxkeychain"
-    declare -r UBUNTU_GIT_CREDENTIAL_HELPER="gnome-keyring"
+    declare -r LINUX_GIT_CREDENTIAL_HELPER="gnome-keyring"
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -389,8 +389,8 @@ get_git_credential() {
             printf "%s" "$MACOS_GIT_CREDENTIAL_HELPER"
             ;;
 
-        ubuntu*)
-            printf "%s" "$UBUNTU_GIT_CREDENTIAL_HELPER"
+        ubuntu|manjaro*)
+            printf "%s" "$LINUX_GIT_CREDENTIAL_HELPER"
             ;;
 
         *)
