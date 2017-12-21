@@ -16,6 +16,8 @@ main() {
 
     # Development tools
 
+    ../zsh.sh
+
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     ./cleanup.sh
