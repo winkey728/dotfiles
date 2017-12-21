@@ -17,6 +17,7 @@ main() {
     # Development tools
 
     ../zsh.sh
+    ./git.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
