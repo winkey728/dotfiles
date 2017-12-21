@@ -10,7 +10,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 pacman_cleanup() {
 
     execute \
-        "sudo pacman --noconfirm -Rs $(pacman -Qtdq)" \
+        "sudo pacman --noconfirm -Rs $(pacman -Qtdq) || true" \
         "Pacman (delete all orphaned packages)"
 
     execute \
@@ -59,7 +59,7 @@ pacman_upgrade() {
 yaourt_cleanup() {
 
     execute \
-        "yaourt --noconfirm -Qtd" \
+        "yaourt --noconfirm -Qtd || true" \
         "Yaourt (delete all orphaned packages)"
 
     execute \
