@@ -19,6 +19,7 @@ main() {
     ../zsh.sh
     ./git.sh
     ../vim.sh
+    ./command_line_tools.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
