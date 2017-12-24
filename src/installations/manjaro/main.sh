@@ -23,6 +23,7 @@ main() {
     ./command_line_tools.sh
     ./java.sh
     ../rust.sh
+    ../python.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

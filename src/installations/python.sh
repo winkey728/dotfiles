@@ -3,7 +3,11 @@
 cd "$(dirname "${BASH_SOURCE[0]}")" \
     && . "../bootstrap/utils.sh"
 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 declare -r ZSH_ENV_FILE="$HOME/.zshenv"
+
+declare PIP_NEED_SUDO=false
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -14,15 +18,23 @@ pip_install() {
     declare -r PIP_VERSION="$3"
     declare -r OPT="$4"
 
+    local PIP_CMD=""
+
     if [ -z "$PIP_VERSION" ]; then
         PIP_VERSION="2"
     fi
 
-    if pip"$PIP_VERSION" list --format=legacy | grep "$PACKAGE_NAME" &> /dev/null; then
+    if [ "$PIP_NEED_SUDO" = true ]; then
+        PIP_CMD="sudo pip$PIP_VERSION"
+    else
+        PIP_CMD="pip$PIP_VERSION"
+    fi
+
+    if $PIP_CMD list --format=legacy | grep "$PACKAGE_NAME" &> /dev/null; then
         print_success "$READABLE_NAME <pip$PIP_VERSION>"
     else
         execute \
-            "pip$PIP_VERSION install $OPT $PACKAGE_NAME" \
+            "$PIP_CMD install $OPT $PACKAGE_NAME" \
             "$READABLE_NAME <pip$PIP_VERSION>"
     fi
 
