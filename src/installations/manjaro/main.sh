@@ -11,6 +11,7 @@ main() {
     # Foundations
     ./pacman.sh
     ./yaourt.sh
+    ./system.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
