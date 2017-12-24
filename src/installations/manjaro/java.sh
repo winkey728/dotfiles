@@ -62,7 +62,7 @@ install_jenv() {
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     execute \
-        "git clone https://github.com/gcuisinier/jenv.git $HOME/.jenv" \
+        "git clone --quiet https://github.com/gcuisinier/jenv.git $HOME/.jenv" \
         "jenv (install)" \
         && add_jenv_config \
             || return 1
