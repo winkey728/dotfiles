@@ -22,6 +22,7 @@ main() {
     ../vim.sh
     ./command_line_tools.sh
     ./java.sh
+    ../rust.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
