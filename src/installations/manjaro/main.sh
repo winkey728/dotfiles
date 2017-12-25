@@ -26,6 +26,7 @@ main() {
     ../python.sh
     ../nodejs.sh
     ./shell-script.sh
+    ./uml.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
