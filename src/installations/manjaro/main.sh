@@ -25,6 +25,7 @@ main() {
     ../rust.sh
     ../python.sh
     ../nodejs.sh
+    ./shell-script.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
