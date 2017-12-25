@@ -27,6 +27,7 @@ main() {
     ../nodejs.sh
     ./shell-script.sh
     ./uml.sh
+    ../tmux.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
