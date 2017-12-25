@@ -24,6 +24,7 @@ main() {
     ./java.sh
     ../rust.sh
     ../python.sh
+    ../nodejs.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
