@@ -66,7 +66,7 @@ do_install() {
 
     execute \
         "curl $RUSTUP_INIT_URL -sSf | sh -s -- --default-toolchain $DEFAULT_TOOLCHAIN" \
-        "Install toolchain (rustc, cargo, rustupd)" \
+        "Install toolchain (rustc, cargo, rustup)" \
         && add_rust_configs
 
 }
