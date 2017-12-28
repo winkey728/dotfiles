@@ -8,9 +8,6 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 declare -r LOCAL_SHELL_CONFIG_FILE="$HOME/.zsh.local"
 declare -r ZFUNC_DIR="$HOME/.zfunc"
 
-declare -r RUSTUP_INIT_URL="https://sh.rustup.rs"
-declare -r DEFAULT_TOOLCHAIN="stable"
-
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 add_rust_configs() {
@@ -22,8 +19,8 @@ add_rust_configs() {
 
 if [ -x \"\$HOME/.cargo/bin/rustc\" ]; then
     export PATH=\"\$HOME/.cargo/bin:\$PATH\"
-    export RUST_SRC_PATH=\"\$(rustc --print sysroot)/lib/rustlib/src/rust/src\"
 fi
+export RUST_SRC_PATH=\"\$(rustc --print sysroot)/lib/rustlib/src/rust/src\"
 
 "
 
@@ -64,10 +61,9 @@ do_update() {
 
 do_install() {
 
-    execute \
-        "curl $RUSTUP_INIT_URL -sSf | sh -s -- --default-toolchain $DEFAULT_TOOLCHAIN" \
-        "Install toolchain (rustc, cargo, rustup)" \
-        && add_rust_configs
+    . "$(get_os)/rust.sh"
+
+    add_rust_configs
 
 }
 
