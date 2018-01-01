@@ -36,6 +36,7 @@ main() {
     ./ui.sh
     ./gfw.sh
     ../emacs.sh
+    ./input_method.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
