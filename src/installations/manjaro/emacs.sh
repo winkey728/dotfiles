@@ -8,7 +8,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 main() {
 
-    brew_install "Emacs" "emacs" "caskroom/cask" "cask"
+    pacman_install "Emacs" "emacs"
 
 }
 
