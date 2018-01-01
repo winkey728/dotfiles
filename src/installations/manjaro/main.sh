@@ -37,6 +37,7 @@ main() {
     ./gfw.sh
     ../emacs.sh
     ./input_method.sh
+    ./browser.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
