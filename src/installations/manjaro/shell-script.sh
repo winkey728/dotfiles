@@ -10,7 +10,7 @@ main() {
 
     print_in_purple "\n   Shell Script\n\n"
 
-    pacman_install "ShellCheck" "shellcheck"
+    pacman_install "ShellCheck" "shellcheck" "community"
 
 }
 

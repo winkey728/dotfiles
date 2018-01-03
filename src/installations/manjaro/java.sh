@@ -14,9 +14,9 @@ declare -r DEFAULT_JDK="1.8"
 
 install_java() {
 
-    pacman_install "OpenJDK 7" "jdk7-openjdk"
-    pacman_install "OpenJDK 8" "jdk8-openjdk"
-    pacman_install "OpenJDK 9" "jdk9-openjdk"
+    pacman_install "OpenJDK 7" "jdk7-openjdk" "extra"
+    pacman_install "OpenJDK 8" "jdk8-openjdk" "extra"
+    pacman_install "OpenJDK 9" "jdk9-openjdk" "extra"
 
 }
 

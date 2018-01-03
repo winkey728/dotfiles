@@ -28,10 +28,10 @@ main() {
 
     print_in_purple "\n   Git\n\n"
 
-    pacman_install "Git" "git"
+    pacman_install "Git" "git" "extra"
 
-    pacman_install "Gnome Keyring" "gnome-keyring"
-    pacman_install "libgnome-keyring" "libgnome-keyring"
+    pacman_install "Gnome Keyring" "gnome-keyring" "extra"
+    pacman_install "libgnome-keyring" "libgnome-keyring" "extra"
 
     make_credential
 }

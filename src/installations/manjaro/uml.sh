@@ -10,7 +10,7 @@ main() {
 
     print_in_purple "\n   UML\n\n"
 
-    pacman_install "PlantUML" "plantuml"
+    pacman_install "PlantUML" "plantuml" "archlinuxcn"
 
 }
 

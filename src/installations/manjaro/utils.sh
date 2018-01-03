@@ -23,6 +23,13 @@ pacman_install() {
 
     declare -r PKG_READABLE_NAME="$1"
     declare -r PKG="$2"
+    declare PKG_REPO="$3"
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    if [ -n "PKG_REPO" ]; then
+        PKG_REPO="${PKG_REPO}/"
+    fi
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -30,7 +37,7 @@ pacman_install() {
         print_success "$PKG_READABLE_NAME"
     else
         execute \
-            "sudo pacman --noconfirm -S $PKG" \
+            "sudo pacman --noconfirm -S ${PKG_REPO}${PKG}" \
             "$PKG_READABLE_NAME"
     fi
 
@@ -72,6 +79,17 @@ yaourt_install() {
 
     declare -r PKG_READABLE_NAME="$1"
     declare -r PKG="$2"
+    declare PKG_REPO="$3"
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    # Default repository is `aur`
+
+    if [ -z "$PKG_REPO" ]; then
+        PKG_REPO="aur"
+    fi
+
+    PKG_REPO="${PKG_REPO}/"
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -79,7 +97,7 @@ yaourt_install() {
         print_success "$PKG_READABLE_NAME"
     else
         execute \
-            "yaourt --noconfirm -S $PKG" \
+            "yaourt --noconfirm -S ${PKG_REPO}${PKG}" \
             "$PKG_READABLE_NAME"
     fi
 

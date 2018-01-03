@@ -10,7 +10,7 @@ main() {
 
     print_in_purple "\n   Browsers\n\n"
 
-    pacman_install "Chrome" "google-chrome"
+    pacman_install "Chrome" "google-chrome" "archlinuxcn"
 
 }
 

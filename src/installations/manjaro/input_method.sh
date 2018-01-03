@@ -10,7 +10,7 @@ main() {
 
     print_in_purple "\n   Input Method\n\n"
 
-    pacman_install "SogouInput" "fcitx-sogoupinyin"
+    pacman_install "SogouInput" "fcitx-sogoupinyin" "archlinuxcn"
 
 }
 

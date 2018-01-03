@@ -43,16 +43,16 @@ main() {
 
     print_in_purple "\n   Command Line Tools\n\n"
 
-    pacman_install "fzf" "fzf" \
+    pacman_install "fzf" "fzf" "community" \
         && add_fzf_config
 
-    pacman_install "autojump" "autojump"
-    pacman_install "ripgrep" "ripgrep"
-    pacman_install "fd" "fd-rs"
+    pacman_install "autojump" "autojump" "community"
+    pacman_install "ripgrep" "ripgrep" "community"
+    pacman_install "fd" "fd-rs" "community"
 
-    pacman_install "Aria" "aria2"
-    pacman_install "Aspell" "aspell"
-    pacman_install "You-Get" "you-get"
+    pacman_install "Aria" "aria2" "community"
+    pacman_install "Aspell" "aspell" "extra"
+    pacman_install "You-Get" "you-get" "community"
 
 }
 

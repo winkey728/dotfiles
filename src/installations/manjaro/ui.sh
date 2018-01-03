@@ -12,10 +12,10 @@ main() {
 
         print_in_purple "\n   UI\n\n"
 
-        pacman_install "Kvantum Engine" "kvantum-qt5"
-        pacman_install "Arc-KDE" "arc-kde"
-        pacman_install "Papirus Icon Theme" "papirus-icon-theme"
-        pacman_install "Latte Dock" "latte-dock"
+        pacman_install "Kvantum Engine" "kvantum-qt5" "community"
+        pacman_install "Arc-KDE" "arc-kde" "community"
+        pacman_install "Papirus Icon Theme" "papirus-icon-theme" "community"
+        pacman_install "Latte Dock" "latte-dock" "community"
 
     fi
 

@@ -8,7 +8,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 main() {
 
-    pacman_install "Emacs" "emacs"
+    pacman_install "Emacs" "emacs" "extra"
 
 }
 

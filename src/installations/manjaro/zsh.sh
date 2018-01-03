@@ -48,7 +48,7 @@ change_default_shell() {
 
 main() {
 
-    pacman_install "Zsh" "zsh" \
+    pacman_install "Zsh" "zsh" "extra" \
         && change_default_shell
 
 }

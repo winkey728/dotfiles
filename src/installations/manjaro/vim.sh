@@ -8,7 +8,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 main() {
 
-    pacman_install "Vim" "vim"
+    pacman_install "Vim" "vim" "extra"
 
 }
 

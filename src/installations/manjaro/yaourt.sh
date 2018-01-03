@@ -8,8 +8,8 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 install_yaourt() {
 
-    pacman_install "yaourt" "yaourt"
-    pacman_install "fakeroot" "fakeroot"
+    pacman_install "yaourt" "yaourt" "extra"
+    pacman_install "fakeroot" "fakeroot" "core"
 
 }
 

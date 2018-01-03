@@ -12,7 +12,7 @@ declare -r DEFAULT_TOOLCHAIN="stable"
 
 main() {
 
-    pacman_install "Rustup" "rustup"
+    pacman_install "Rustup" "rustup" "community"
 
     execute \
         "rustup toolchain install $DEFAULT_TOOLCHAIN \

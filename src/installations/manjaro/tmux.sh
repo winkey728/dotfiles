@@ -8,7 +8,8 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 main() {
 
-    pacman_install "Tmux" "tmux"
+    pacman_install "Tmux" "tmux" "community"
+
 }
 
 main "$@"
