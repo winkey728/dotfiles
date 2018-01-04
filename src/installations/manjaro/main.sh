@@ -39,6 +39,7 @@ main() {
     ./input_method.sh
     ./browser.sh
     ./terminal.sh
+    ./media.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
