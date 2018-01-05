@@ -40,6 +40,7 @@ main() {
     ./browser.sh
     ./terminal.sh
     ./media.sh
+    ./netdisk.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
