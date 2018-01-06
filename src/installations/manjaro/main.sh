@@ -12,6 +12,7 @@ main() {
     ./pacman.sh
     ./yaourt.sh
     ./system.sh
+    ./font.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
