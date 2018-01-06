@@ -43,6 +43,7 @@ main() {
     ./netdisk.sh
     ./vc_tool.sh
     ./sql.sh
+    ./ide.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
