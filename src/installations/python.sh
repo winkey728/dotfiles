@@ -61,6 +61,7 @@ install_global_packages() {
     declare -ar PACKAGES=(
         "isort"
         "autoflake"
+        "httpie"
     )
 
     for p in "${PACKAGES[@]}"; do
