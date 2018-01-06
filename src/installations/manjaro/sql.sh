@@ -10,8 +10,7 @@ main() {
 
     print_in_purple "\n   SQL Applications\n\n"
 
-    brew_install "SQL Tabs" "sql-tabs" "caskroom/cask" "cask"
-    brew_install "DBeaver" "dbeaver-community" "caskroom/cask" "cask"
+    pacman_install "DBeaver" "dbeaver" "community"
 
 }
 
