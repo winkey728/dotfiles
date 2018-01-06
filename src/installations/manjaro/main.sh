@@ -45,6 +45,7 @@ main() {
     ./vc_tool.sh
     ./sql.sh
     ./ide.sh
+    ./misc_app.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
