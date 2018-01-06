@@ -66,11 +66,11 @@ pacman_upgrade() {
 yaourt_cleanup() {
 
     execute \
-        "yaourt --noconfirm -Qtd || true" \
+        "sudo yaourt --noconfirm -Qtd || true" \
         "Yaourt (delete all orphaned packages)"
 
     execute \
-        "yaourt --noconfirm -Sc" \
+        "sudo yaourt --noconfirm -Sc" \
         "Yaourt (clear cache)"
 
 }
@@ -97,7 +97,7 @@ yaourt_install() {
         print_success "$PKG_READABLE_NAME"
     else
         execute \
-            "yaourt --noconfirm -S ${PKG_REPO}${PKG}" \
+            "sudo yaourt --noconfirm -S ${PKG_REPO}${PKG}" \
             "$PKG_READABLE_NAME"
     fi
 
@@ -106,7 +106,7 @@ yaourt_install() {
 yaourt_update() {
 
     execute \
-        "yaourt --noconfirm -Sy" \
+        "sudo yaourt --noconfirm -Sy" \
         "Yaourt (update)"
 
 }
@@ -114,7 +114,7 @@ yaourt_update() {
 yaourt_upgrade() {
 
     execute \
-        "yaourt --noconfirm -Syua" \
+        "sudo yaourt --noconfirm -Syua" \
         "Yaourt (upgrade)"
 
 }

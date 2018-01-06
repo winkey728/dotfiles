@@ -12,13 +12,6 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    # All packages here need root permission to export them to
-    # `/var/cache/pacman/pkg`
-
-    ask_for_sudo
-
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
     yaourt_install "GitKraken" "gitkraken"
     yaourt_install "SmartSynchronize" "smartsynchronize"
 
