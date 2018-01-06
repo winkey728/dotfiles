@@ -41,6 +41,7 @@ main() {
     ./terminal.sh
     ./media.sh
     ./netdisk.sh
+    ./vc_tool.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
