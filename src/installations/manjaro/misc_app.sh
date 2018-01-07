@@ -11,6 +11,7 @@ main() {
     print_in_purple "\n   Misc Applications\n\n"
 
     pacman_install "Synergy" "synergy" "community"
+    pacman_install "Youdao Dictionary" "youdao-dict" "archlinuxcn"
 
 }
 
