@@ -22,6 +22,7 @@ main() {
     ../vim.sh
     ./command_line_tools.sh
     ./java.sh
+    ./clojure.sh
     ../rust.sh
     ../python.sh
     ../nodejs.sh
