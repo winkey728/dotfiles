@@ -62,6 +62,7 @@ install_global_packages() {
         "isort"
         "autoflake"
         "httpie"
+        "genpac"
     )
 
     for p in "${PACKAGES[@]}"; do

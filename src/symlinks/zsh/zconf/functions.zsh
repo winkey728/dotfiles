@@ -147,3 +147,17 @@ Options:
     printf "%s" "${conf}" | qshell qdownload /dev/stdin
 
 }
+
+function update_pac() {
+
+    local SOCKS5_HOST="127.0.0.1"
+    local SOCKS5_PORT="1080"
+    local PAC_DIR="$HOME/.shadowsocks"
+    local PAC_FILE="$PAC_DIR/autoproxy.pac"
+    local USER_RULE_FILE="$PAC_DIR/user-rule.txt"
+
+    sudo genpac --format=pac --pac-proxy="SOCKS5 $SOCKS5_HOST:$SOCKS5_PORT" \
+         --gfwlist-url="https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt" \
+         --user-rule-from="$USER_RULE_FILE" -o="$PAC_FILE"
+
+}
