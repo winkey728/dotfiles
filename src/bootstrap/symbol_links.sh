@@ -26,6 +26,8 @@ declare -ar FILES_TO_SYMLINK=(
 
     "tmux/tmux"
     "tmux/tmux.conf"
+
+    "alacritty/alacritty.yml"
 )
 
 # ----------------------------------------------------------------------
