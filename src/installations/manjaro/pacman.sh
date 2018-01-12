@@ -16,7 +16,7 @@ main() {
 
 [archlinuxcn]
 SigLevel = Optional TrustedOnly
-Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
+Server = https://cdn.repo.archlinuxcn.org/$arch
 
 "
 
@@ -34,6 +34,12 @@ Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 
     pacman_update
     pacman_upgrade
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    # Add archlinuxcn PGP Keys
+
+    pacman_install "Arch Linux Chinese PGP Key" "archlinuxcn-keyring" "archlinuxcn"
 
 }
 
