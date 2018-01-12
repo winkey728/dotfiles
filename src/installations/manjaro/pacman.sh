@@ -24,9 +24,9 @@ Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 
     # Add archlinuxcn repo server to pacman
 
-    if ! file_contains_string "archlinuxcn" "$PACMAN_CONFIG_FILE"; then
+    if ! file_contains_string "^\[archlinuxcn\]$" "$PACMAN_CONFIG_FILE"; then
         execute \
-            "printf '%s' '$CONFIGS' >> $PACMAN_CONFIG_FILE" \
+            "printf '%s' '$CONFIGS' | sudo tee -a $PACMAN_CONFIG_FILE" \
             "Pacman (add archlinuxcn repo)"
     fi
 
