@@ -11,12 +11,12 @@ main() {
     print_in_purple "\n   Pacman\n\n"
 
     declare -r PACMAN_CONFIG_FILE="/etc/pacman.conf"
-    declare -r CONFIGS="
+    declare -r CONFIGS="\
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 [archlinuxcn]
 SigLevel = Optional TrustedOnly
-Server = https://cdn.repo.archlinuxcn.org/$arch
+Server = https://cdn.repo.archlinuxcn.org/\$arch
 
 "
 
