@@ -11,6 +11,7 @@ main() {
     print_in_purple "\n   Input Method\n\n"
 
     pacman_install "SogouInput" "fcitx-sogoupinyin" "archlinuxcn"
+    pacman_install "KCM for Fcitx" "kcm-fcitx" "community"
 
 }
 
