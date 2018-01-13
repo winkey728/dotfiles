@@ -26,10 +26,14 @@ export RUST_SRC_PATH=\"\$(rustc --print sysroot)/lib/rustlib/src/rust/src\"
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    execute \
-        "printf '%s' '$CONFIGS' >> $LOCAL_SHELL_CONFIG_FILE \
+    if ! file_contains_string "^\# Rust$" "$LOCAL_SHELL_CONFIG_FILE"; then
+
+        execute \
+            "printf '%s' '$CONFIGS' >> $LOCAL_SHELL_CONFIG_FILE \
             && . $LOCAL_SHELL_CONFIG_FILE" \
-        "Rust (update $LOCAL_SHELL_CONFIG_FILE)"
+            "Rust (update $LOCAL_SHELL_CONFIG_FILE)"
+
+    fi
 
 }
 
@@ -73,7 +77,7 @@ main() {
 
     print_in_purple "\n   Rust\n\n"
 
-    if cmd_exists "rustup"; then
+    if cmd_exists "rustup" && cmd_exists "rustc" && cmd_exists "cargo"; then
         do_update
     else
         do_install
