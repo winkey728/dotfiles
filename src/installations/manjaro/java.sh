@@ -55,17 +55,34 @@ fi
 
 install_jenv() {
 
+    declare -r dir="$HOME/.jenv"
+
     declare -r plugins=(
         "export"
     )
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    execute \
-        "git clone --quiet https://github.com/gcuisinier/jenv.git $HOME/.jenv" \
-        "jenv (install)" \
-        && add_jenv_config \
-            || return 1
+    if [ -d "$dir" ]; then
+
+        # Update
+
+        execute \
+            "cd $dir \
+                && git pull --quiet --rebase origin master" \
+            "jenv (update)"
+
+    else
+
+        # Install
+
+        execute \
+            "git clone --quiet https://github.com/gcuisinier/jenv.git $dir" \
+            "jenv (install)" \
+            && add_jenv_config \
+                || return 1
+
+    fi
 
     for p in $plugins; do
 
