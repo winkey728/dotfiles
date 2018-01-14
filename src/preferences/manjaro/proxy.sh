@@ -5,7 +5,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-declare -r CONFIG_FILE="$HOME/.config/kioslaverc"
+declare -r CONFIG_FILE="kioslaverc"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -13,9 +13,8 @@ main() {
 
     print_in_purple "\n   Proxy\n\n"
 
-
     execute \
-        "kwriteconfig --file $CONFIG_FILE \
+        "kwriteconfig5 --file $CONFIG_FILE \
                       --group 'Proxy Settings' \
                       --key 'Proxy Config Script' \
                       --type string \
@@ -23,7 +22,7 @@ main() {
         "Set proxy config script"
 
     execute \
-        "kwriteconfig --file $CONFIG_FILE \
+        "kwriteconfig5 --file $CONFIG_FILE \
                       --group 'Proxy Settings' \
                       --key ProxyType \
                       --type int \
