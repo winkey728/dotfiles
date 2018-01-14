@@ -57,7 +57,8 @@ install_jenv() {
 
     declare -r dir="$HOME/.jenv"
 
-    declare -r plugins=(
+    declare -ar plugins=(
+        "lein"
         "export"
     )
 
@@ -84,7 +85,7 @@ install_jenv() {
 
     fi
 
-    for p in $plugins; do
+    for p in "${plugins[@]}"; do
 
         execute \
             ". $LOCAL_SHELL_CONFIG_FILE \

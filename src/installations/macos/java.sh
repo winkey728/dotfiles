@@ -59,7 +59,8 @@ fi
 
 install_jenv() {
 
-    declare -r plugins=(
+    declare -ar plugins=(
+        "lein"
         "export"
     )
 
@@ -69,7 +70,7 @@ install_jenv() {
         && add_jenv_config \
             || return 1
 
-    for p in $plugins; do
+    for p in "${plugins[@]}"; do
 
         execute \
             ". $LOCAL_SHELL_CONFIG_FILE \
