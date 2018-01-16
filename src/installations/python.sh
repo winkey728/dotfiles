@@ -5,8 +5,6 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-declare -r ZSH_ENV_FILE="$HOME/.zshenv"
-
 declare PIP_NEED_SUDO=false
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
