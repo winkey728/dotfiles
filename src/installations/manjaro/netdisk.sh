@@ -8,7 +8,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 install_qshell() {
 
-    declare -r QSHELL_URL="https://dn-devtools.qbox.me/2.1.5/qshell-darwin-x64"
+    declare -r QSHELL_URL="https://dn-devtools.qbox.me/2.1.5/qshell-linux-x64"
     declare -r QSHELL_BIN="$HOME/Projects/qiniu/qshell"
     declare -r DEST_BIN="$HOME/bin/qshell"
 
