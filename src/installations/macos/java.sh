@@ -33,7 +33,6 @@ add_jenv_config() {
 
 if [ -f \"\$HOME/.jenv/bin/jenv\" ]; then
     export PATH=\"\$HOME/.jenv/bin:\$PATH\"
-    export CLASSPATH=\".:\$JAVA_HOME/lib:\$JAVA_HOME/jre/lib:\$CLASSPATH\"
     eval \"\$(jenv init -)\"
 elif command -v jenv &> /dev/null; then
     if [[ -d /usr/local/opt/jenv ]]; then
@@ -60,7 +59,7 @@ fi
 install_jenv() {
 
     declare -ar plugins=(
-        "lein"
+        # "lein"
         "export"
     )
 
