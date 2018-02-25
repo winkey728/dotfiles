@@ -13,7 +13,7 @@ has_github_certificate() {
         || return 0
 
     if printf "protocol=https\nhost=github.com\n\n" \
-            | git credential-$credential get \
+            | git credential-"$credential" get \
        &> /dev/null; then
 
         return 0
@@ -49,8 +49,8 @@ set_github_certificate() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    printf "protocol=https\nhost=github.com\nusername=$username\npassword=$password\n\n" \
-        | git credential-$credential store \
+    printf "protocol=https\nhost=github.com\nusername=%s\npassword=%s\n\n" "$username" "$password" \
+        | git credential-"$credential" store \
         &> /dev/null
 
     print_result "$?" "Store the github credential"

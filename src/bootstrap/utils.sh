@@ -13,7 +13,7 @@ ask() {
 
 ask_password() {
     print_question "$1"
-    read -s
+    read -r -s
     printf "\n"
 }
 
@@ -170,8 +170,8 @@ is_git_repository() {
 
 is_supported_version() {
 
-    declare -a v1=(${1//./ })
-    declare -a v2=(${2//./ })
+    declare -a v1=("${1//./ }")
+    declare -a v2=("${2//./ }")
     local i=""
 
     # Fill empty positions in v1 with zeros.
@@ -187,8 +187,8 @@ is_supported_version() {
             v2[i]=0
         fi
 
-        local v1i=`printf "%d" ${v1[i]} 2> /dev/null`
-        local v2i=`printf "%d" ${v2[i]} 2> /dev/null`
+        local v1i=$(printf "%d" ${v1[i]} 2> /dev/null)
+        local v2i=$(printf "%d" ${v2[i]} 2> /dev/null)
 
         if (( 10#${v1i} < 10#${v2i} )); then
             return 1

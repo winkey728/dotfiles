@@ -15,7 +15,12 @@ is_sogou_input_installed() {
 get_sogou_input_directory() {
 
     local baseDir="$(brew --prefix)/Caskroom/sogouinput"
-    local version="$(ls -t $baseDir | head -1)"
+    local version="$( \
+        find "$baseDir" -maxdepth 1 ! -path "$baseDir" ! -path '*\/.*' -type d -printf "%T@ %f\n" | \
+        sort -n | \
+        head -1 | \
+        sed "s/^[0-9]*.[0-9]* //g" \
+    )"
 
     printf "%s/%s/%s" "$baseDir" "$version" "安装搜狗输入法.app"
 

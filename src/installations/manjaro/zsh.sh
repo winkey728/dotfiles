@@ -9,7 +9,6 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 change_default_shell() {
 
     local newShellPath=""
-    local brewPrefix=""
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
