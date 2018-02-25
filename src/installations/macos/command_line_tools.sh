@@ -43,6 +43,9 @@ main() {
 
     print_in_purple "\n   Command Line Tools\n\n"
 
+    brew_install "core utils" "coreutils"
+    brew_install "bin utils" "binutils"
+    brew_install "find utils" "findutils --with-default-names"
 
     brew_install "fzf" "fzf" \
         && add_fzf_config
