@@ -27,7 +27,7 @@ pacman_install() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    if [ -n "PKG_REPO" ]; then
+    if [ -n "$PKG_REPO" ]; then
         PKG_REPO="${PKG_REPO}/"
     fi
 
