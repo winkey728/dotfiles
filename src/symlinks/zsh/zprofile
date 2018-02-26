@@ -36,8 +36,6 @@ function source_zsh_files() {
         "zconf/functions.zsh"
         "zconf/keybindings.zsh"
         "zconf/options.zsh"
-        "zsh.local" # For local settings that should
-                    # not be under version control
     )
 
     local file=""
