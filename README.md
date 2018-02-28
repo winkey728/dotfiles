@@ -48,10 +48,10 @@ preferences
     <tbody>
         <tr>
             <td>
-                <img src="screenshots/git-status-output-macos.png" alt="Output for git status on macOS" width="100%">
+                <img src="https://raw.githubusercontent.com/winkey728/dotfiles/master/screenshots/git-status-output-macos.png" alt="Output for git status on macOS" width="100%">
             </td>
             <td>
-                <img src="screenshots/git-status-output-manjaro.png" alt="Output for git status on Manjaro" width="100%">
+                <img src="https://raw.githubusercontent.com/winkey728/dotfiles/master/screenshots/git-status-output-manjaro.png" alt="Output for git status on Manjaro" width="100%">
             </td>
         </tr>
         <tr align="center">
@@ -67,10 +67,10 @@ preferences
     <tbody>
         <tr>
             <td>
-                <img src="screenshots/git-log-output-macos.png" alt="Output for git status on macOS" width="100%">
+                <img src="https://raw.githubusercontent.com/winkey728/dotfiles/master/screenshots/git-log-output-macos.png" alt="Output for git status on macOS" width="100%">
             </td>
             <td>
-                <img src="screenshots/git-log-output-manjaro.png" alt="Output for git status on Manjaro" width="100%">
+                <img src="https://raw.githubusercontent.com/winkey728/dotfiles/master/screenshots/git-log-output-manjaro.png" alt="Output for git status on Manjaro" width="100%">
             </td>
         </tr>
         <tr align="center">
@@ -86,10 +86,10 @@ preferences
     <tbody>
         <tr>
             <td>
-                <img src="screenshots/tmux-terminal-macos.png" alt="Output for git status on macOS" width="100%">
+                <img src="https://raw.githubusercontent.com/winkey728/dotfiles/master/screenshots/tmux-terminal-macos.png" alt="Output for git status on macOS" width="100%">
             </td>
             <td>
-                <img src="screenshots/tmux-terminal-manjaro.png" alt="Output for git status on Manjaro" width="100%">
+                <img src="https://raw.githubusercontent.com/winkey728/dotfiles/master/screenshots/tmux-terminal-manjaro.png" alt="Output for git status on Manjaro" width="100%">
             </td>
         </tr>
         <tr align="center">
@@ -105,10 +105,10 @@ preferences
     <tbody>
         <tr>
             <td>
-                <img src="screenshots/emacs-macos.png" alt="Output for git status on macOS" width="100%">
+                <img src="https://raw.githubusercontent.com/winkey728/dotfiles/master/screenshots/emacs-macos.png" alt="Output for git status on macOS" width="100%">
             </td>
             <td>
-                <img src="screenshots/emacs-manjaro.png" alt="Output for git status on Manjaro" width="100%">
+                <img src="https://raw.githubusercontent.com/winkey728/dotfiles/master/screenshots/emacs-manjaro.png" alt="Output for git status on Manjaro" width="100%">
             </td>
         </tr>
         <tr align="center">
@@ -124,10 +124,10 @@ preferences
     <tbody>
         <tr>
             <td>
-                <img src="screenshots/vim-macos.png" alt="Output for git status on macOS" width="100%">
+                <img src="https://raw.githubusercontent.com/winkey728/dotfiles/master/screenshots/vim-macos.png" alt="Output for git status on macOS" width="100%">
             </td>
             <td>
-                <img src="screenshots/vim-manjaro.png" alt="Output for git status on Manjaro" width="100%">
+                <img src="https://raw.githubusercontent.com/winkey728/dotfiles/master/screenshots/vim-manjaro.png" alt="Output for git status on Manjaro" width="100%">
             </td>
         </tr>
         <tr align="center">
