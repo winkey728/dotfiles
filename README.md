@@ -23,16 +23,16 @@ The setup process will:
 
 * Download the dotfiles on your computer (by default it will suggest `~/project/github/dotfiles`)
 * Create some [directories](src/bootstrap/directories.sh)
-* [Symlink](src/bootstrap/symbol_link.sh) the dotfiles (
+* [Symlink](src/bootstrap/symbol_links.sh) the dotfiles (
   [git](src/symlinks/git),
   [tmux](src/symlinks/tmux),
   [vim](src/symlinks/vim),
   [zsh](src/symlinks/zsh)
-  and [etc](src/symlinks/git).
+  and [etc](src/symlinks).
 )
 * Install command-line tools / GUI applications for
   [macOS](src/installations/macos) /
-  [Manjaro](src/installations/macos/manjaro)
+  [Manjaro](src/installations/manjaro)
 * Set custom
   [macOS](src/preferences/macos) /
   [Manjaro](src/preferences/manjaro)
