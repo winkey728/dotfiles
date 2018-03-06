@@ -8,8 +8,8 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 main() {
 
-    brew_install "Python 2" "python"
-    brew_install "Python 3" "python3"
+    brew_install "Python 2" "python@2"
+    brew_install "Python 3" "python"
     brew_install "Pipenv" "pipenv"
 
 }
