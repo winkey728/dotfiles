@@ -11,7 +11,7 @@ main() {
     print_in_purple "\n   Misc Applications\n\n"
 
     brew_install "Alfred" "alfred" "caskroom/cask" "cask"
-    brew_install "AppZapper" "appzapper" "caskroom/cask" "cask"
+    brew_install "AppCleaner" "appcleaner" "caskroom/cask" "cask"
     brew_install "Synergy" "synergy" "caskroom/cask" "cask"
     brew_install "SkyFonts" "skyfonts" "caskroom/cask" "cask"
     brew_install "Keypad Layout" "keypad-layout" "caskroom/cask" "cask"
