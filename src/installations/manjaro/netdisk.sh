@@ -45,7 +45,7 @@ main() {
 
     printf "\n"
 
-    pacman_install "WizNote" "wiznote" "community"
+    yaourt_install "Evernote" "tusk"
     yaourt_install "Enpass" "enpass-bin"
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
