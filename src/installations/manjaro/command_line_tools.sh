@@ -48,7 +48,7 @@ main() {
 
     pacman_install "autojump" "autojump" "community"
     pacman_install "ripgrep" "ripgrep" "community"
-    pacman_install "fd" "fd-rs" "community"
+    pacman_install "fd" "fd" "community"
 
     pacman_install "Aria" "aria2" "community"
     pacman_install "Aspell" "aspell" "extra"
