@@ -49,7 +49,7 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    brew_install "WizNote" "wiznote" "caskroom/cask" "cask"
+    brew_install "Evernote" "evernote" "caskroom/cask" "cask"
     brew_install "Enpass" "enpass" "caskroom/cask" "cask"
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
