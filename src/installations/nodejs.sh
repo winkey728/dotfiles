@@ -30,9 +30,9 @@ install_global_packages() {
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     install_npm_package "Whistle" "whistle"
-    install_npm_package "vmd (preview markdown files)" "vmd"
     install_npm_package "Tern" "tern"
     install_npm_package "Prettier" "prettier"
+    install_npm_package "Gatsby" "gatsby-cli"
 
 }
 
