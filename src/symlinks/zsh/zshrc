@@ -86,6 +86,10 @@ plugins=(
     # Clojure
     lein
 
+    # Java
+    mvn
+    gradle
+
     # MacOS
     brew
     osx
