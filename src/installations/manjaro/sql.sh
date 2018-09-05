@@ -10,8 +10,6 @@ main() {
 
     print_in_purple "\n   SQL Applications\n\n"
 
-    pacman_install "DBeaver" "dbeaver" "community"
-
 }
 
 main "$@"

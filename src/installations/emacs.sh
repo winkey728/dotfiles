@@ -7,6 +7,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 declare -r SPACEMACS_REPO="winkey728/spacemacs"
 declare -r SPACEMACS_GIT_URL="https://github.com/$SPACEMACS_REPO.git"
+declare -r SPACEMACS_DIRECTORY="$HOME/Projects/github/emacs.d"
 
 declare -r MY_CONFIG_REPO="winkey728/spacemacs.d"
 declare -r MY_CONFIG_GIT_URL="https://github.com/$MY_CONFIG_REPO.git"
@@ -19,12 +20,17 @@ declare -r SPACEMACS_DOT_D_DIRECTORY="$HOME/.spacemacs.d"
 
 install_spacemacs() {
 
-    local dir="$1"
-    local url="$2"
+    local sourceDir="$1"
+    local targetDir="$2"
+    local url="$3"
 
     execute \
-        "git clone --quiet $url $dir" \
-        "emacs.d (install to $dir)"
+        "git clone --quiet $url $sourceDir" \
+        "emacs.d (install to $sourceDir)"
+
+    execute \
+        "ln -fs $sourceDir $targetDir" \
+        "$targetDir → $sourceDir"
 
 }
 
@@ -43,7 +49,10 @@ setup_spacemacs() {
 
     if [ ! -d "$EMACS_DOT_D_DIRECTORY" ]; then
 
-        install_spacemacs "$EMACS_DOT_D_DIRECTORY" "$SPACEMACS_GIT_URL"
+        install_spacemacs \
+            "$SPACEMACS_DIRECTORY" \
+            "$EMACS_DOT_D_DIRECTORY" \
+            "$SPACEMACS_GIT_URL"
 
     else
 
