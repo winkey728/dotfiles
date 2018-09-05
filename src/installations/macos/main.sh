@@ -12,6 +12,7 @@ main() {
 
     ./xcode.sh
     ./homebrew.sh
+    ./font.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

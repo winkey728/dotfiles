@@ -8,6 +8,9 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 declare -r OMZ_DIRECTORY="$HOME/.oh-my-zsh"
 declare -r OMZ_GIT_REPO_URL="https://github.com/robbyrussell/oh-my-zsh.git"
 
+declare -r POWERLEVEL9K_THEME_DIRECTORY="$OMZ_DIRECTORY/custom/themes/powerlevel9k"
+declare -r POWERLEVEL9K_THEME_GIT_REPO_URL="https://github.com/bhilburn/powerlevel9k.git"
+
 declare -r ZSH_AS_DIRECOTRY="$OMZ_DIRECTORY/custom/plugins/zsh-autosuggestions"
 declare -r ZSH_AS_GIT_REPO_URL="https://github.com/zsh-users/zsh-autosuggestions.git"
 
@@ -44,6 +47,44 @@ install_omz() {
     else
 
         update_omz "$OMZ_DIRECTORY"
+
+    fi
+
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+clone_theme() {
+
+    local dir="$1"
+    local url="$2"
+
+    execute \
+        "git clone --quiet $url $dir" \
+        "powerlevel9k theme (install to $dir)"
+
+}
+
+update_theme() {
+
+    local dir="$1"
+
+    execute \
+        "cd $dir \
+            && git pull --quiet --rebase origin master" \
+        "powerlevel9k theme (update in $dir)"
+
+}
+
+install_theme() {
+
+    if [ ! -d "$POWERLEVEL9K_THEME_DIRECTORY" ]; then
+
+        clone_theme "$POWERLEVEL9K_THEME_DIRECTORY" "$POWERLEVEL9K_THEME_GIT_REPO_URL"
+
+    else
+
+        update_theme "$POWERLEVEL9K_THEME_DIRECTORY"
 
     fi
 
@@ -96,6 +137,7 @@ main() {
     . "$(get_os)/zsh.sh"
 
     install_omz \
+        && install_theme \
         && install_autosuggestions
 
 }
