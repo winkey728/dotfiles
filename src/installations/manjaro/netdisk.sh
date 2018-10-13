@@ -38,7 +38,6 @@ main() {
 
     print_in_purple "\n   Network Disk Applications\n\n"
 
-    pacman_install "Dropbox" "dropbox" "archlinuxcn"
     pacman_install "Nutstore" "nutstore" "archlinuxcn"
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
