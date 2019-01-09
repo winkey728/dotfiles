@@ -12,7 +12,6 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    yaourt_install "GitKraken" "gitkraken"
     yaourt_install "SmartSynchronize" "smartsynchronize"
 
 }
