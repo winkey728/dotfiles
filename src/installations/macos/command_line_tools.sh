@@ -37,6 +37,32 @@ fi
 
 }
 
+add_nnn_config() {
+
+    declare -r CONFIGS="
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# nnn
+
+if command -v \"nnn\" &> /dev/null; then
+   export DISABLE_FILE_OPEN_ON_NAV=1
+fi
+
+"
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    if ! file_contains_string "nnn" "$LOCAL_SHELL_CONFIG_FILE"; then
+
+        execute \
+            "printf '%s' '$CONFIGS' >> $LOCAL_SHELL_CONFIG_FILE \
+            && . $LOCAL_SHELL_CONFIG_FILE" \
+            "nnn (update $LOCAL_SHELL_CONFIG_FILE)"
+
+    fi
+
+}
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 main() {
@@ -53,6 +79,9 @@ main() {
     brew_install "autojump" "autojump"
     brew_install "ripgrep" "ripgrep"
     brew_install "fd" "fd"
+
+    brew_install "nnn" "nnn" \
+        && add_nnn_config
 
     brew_install "Aria2" "aria2"
     brew_install "Aspell" "aspell"

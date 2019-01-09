@@ -37,6 +37,32 @@ fi
 
 }
 
+add_nnn_config() {
+
+    declare -r CONFIGS="
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# nnn
+
+if command -v \"nnn\" &> /dev/null; then
+   export DISABLE_FILE_OPEN_ON_NAV=1
+fi
+
+"
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    if ! file_contains_string "nnn" "$LOCAL_SHELL_CONFIG_FILE"; then
+
+        execute \
+            "printf '%s' '$CONFIGS' >> $LOCAL_SHELL_CONFIG_FILE \
+            && . $LOCAL_SHELL_CONFIG_FILE" \
+            "nnn (update $LOCAL_SHELL_CONFIG_FILE)"
+
+    fi
+
+}
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 main() {
@@ -49,6 +75,9 @@ main() {
     pacman_install "autojump" "autojump" "community"
     pacman_install "ripgrep" "ripgrep" "community"
     pacman_install "fd" "fd" "community"
+
+    pacman_install "nnn" "nnn" "community" \
+        && add_nnn_config
 
     pacman_install "Aria" "aria2" "community"
     pacman_install "Aspell" "aspell" "extra"
