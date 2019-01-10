@@ -45,7 +45,30 @@ add_nnn_config() {
 # nnn
 
 if command -v \"nnn\" &> /dev/null; then
-   export DISABLE_FILE_OPEN_ON_NAV=1
+    export DISABLE_FILE_OPEN_ON_NAV=1
+    export NNN_SHOW_HIDDEN=1
+    export NNN_COPIER=\"/tmp/n3cp\"
+    export NNN_TMPFILE=\"/tmp/nnn\"
+
+    n3() {
+
+        if ! [ -f \$NNN_COPIER ]; then
+            echo \"#!/usr/bin/env sh\n\ncat ~/.nnncp | xargs -0 | pbcopy\" > \$NNN_COPIER
+            chmod +x \$NNN_COPIER
+        fi
+
+        nnn \"\$@\"
+
+        if [ -f \$NNN_TMPFILE ]; then
+            . \$NNN_TMPFILE
+            rm -f \$NNN_TMPFILE > /dev/null
+        fi
+
+        if [ -f \$NNN_COPIER ]; then
+            rm -f \$NNN_COPIER > /dev/null
+        fi
+
+    }
 fi
 
 "
