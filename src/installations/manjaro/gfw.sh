@@ -79,7 +79,7 @@ main() {
     print_in_purple "\n   GFW Applications\n\n"
 
     pacman_install "Shadowsocks-qt5" "shadowsocks-qt5" "community" \
-        && setup_genpac
+        # && setup_genpac
 
     pacman_install "proxychains-ng" "proxychains-ng" "community" \
         && set_proxychains_config
