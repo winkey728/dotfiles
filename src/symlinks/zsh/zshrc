@@ -88,18 +88,23 @@ plugins=(
     copydir
     copyfile
     cp
+    rsync
     extract
 
     # FS jumping
     autojump
 
     # Tools
+    systemd
+    sudo
     docker
     git
-    git_remote_branch
+    git-remote-branch
     httpie
     dotenv
-    heroku
+    fzf
+    fd
+    ripgrep
 
     # NodeJS
     node
