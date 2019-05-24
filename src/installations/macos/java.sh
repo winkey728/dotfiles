@@ -86,7 +86,7 @@ manage_jdk_with_jenv() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    for jdk in $jdkRootPath/*; do
+    for jdk in "$jdkRootPath"/*; do
 
         # simulate input confirmation to force override
         # existing jdk
