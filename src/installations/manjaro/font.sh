@@ -16,6 +16,8 @@ main() {
 
     pacman_install "Source Code Pro" "adobe-source-code-pro-fonts" "extra"
     pacman_install "Roboto" "ttf-roboto" "community"
+    pacman_install "文泉驿微米黑" "wqy-microhei" "community"
+    pacman_install "文泉驿正黑" "wqy-zenhei" "community"
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
