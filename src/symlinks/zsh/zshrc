@@ -121,6 +121,7 @@ plugins=(
     # Python
     pip
     python
+    pipenv
 
     # Rust
     cargo
