@@ -104,6 +104,7 @@ main() {
     pacman_install "nnn" "nnn" "community" \
         && add_nnn_config
 
+    pacman_install "tldr" "tealdeer" "archlinuxcn"
     pacman_install "Aria" "aria2" "community"
     pacman_install "Aspell" "aspell" "extra"
     pacman_install "You-Get" "you-get" "community"
