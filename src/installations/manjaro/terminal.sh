@@ -10,7 +10,7 @@ main() {
 
     print_in_purple "\n   Terminal Applications\n\n"
 
-    yaourt_install "Alacritty" "alacritty-git"
+    pacman_install "Alacritty" "alacritty" "community"
 
 }
 
