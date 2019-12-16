@@ -13,48 +13,13 @@ declare -r DEFAULT_SOCKS5_PORT="1080"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-setup_genpac() {
-
-    declare -r PAC_DIR="$HOME/.shadowsocks"
-    declare -r PAC_FILE="$PAC_DIR/autoproxy.pac"
-    declare -r USER_RULE_FILE="$PAC_DIR/user-rule.txt"
-    declare -r USER_RULE_CONFIG="\
-! Put user rules line by line in this file.
-! See https://adblockplus.org/en/filter-cheatsheet
-
-"
-
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    mkd "$PAC_DIR"
-
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    if ! [ -e "$USER_RULE_FILE" ]; then
-
-        execute \
-            "printf '%s' '$USER_RULE_CONFIG' >> $USER_RULE_FILE" \
-            "Create user-rule.txt"
-
-    fi
-
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    execute \
-        "sudo genpac --format=pac --pac-proxy='SOCKS5 $DEFAULT_SOCKS5_HOST:$DEFAULT_SOCKS5_PORT' \
-              --gfwlist-url='https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt' \
-              --user-rule-from='$USER_RULE_FILE' -o='$PAC_FILE'" \
-        "Generate PAC file"
-
-}
-
 set_proxychains_config() {
 
     declare -r CONFIG="
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# Shadowsocks proxy
+# SOCKS proxy
 socks5 $DEFAULT_SOCKS5_HOST $DEFAULT_SOCKS5_PORT
 
 "
@@ -78,8 +43,7 @@ main() {
 
     print_in_purple "\n   GFW Applications\n\n"
 
-    pacman_install "Shadowsocks-qt5" "shadowsocks-qt5" "community" \
-        # && setup_genpac
+    yaourt_install "qv2ray" "qv2ray"
 
     pacman_install "proxychains-ng" "proxychains-ng" "community" \
         && set_proxychains_config

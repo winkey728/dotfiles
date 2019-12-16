@@ -5,6 +5,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+# in ~/.config/kioslaverc
 declare -r CONFIG_FILE="kioslaverc"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -18,7 +19,7 @@ main() {
                       --group 'Proxy Settings' \
                       --key 'Proxy Config Script' \
                       --type string \
-                      $HOME/.shadowsocks/autoproxy.pac" \
+                      http://pac.winkey.xyz/pac/outer/?token=9wj7XNJJ6D4aMt8v" \
         "Set proxy config script"
 
     execute \
