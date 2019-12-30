@@ -19,14 +19,13 @@ main() {
 
     printf "\n"
 
-    brew_install "MPV" "mpv" "caskroom/cask" "cask"
     brew_install "IINA" "iina" "caskroom/cask" "cask"
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     printf "\n"
 
-    brew_install "Netease Music" "neteasemusic" "caskroom/cask" "cask"
+    brew_install "QQ Music" "qqmusic" "caskroom/cask" "cask"
 
 }
 
