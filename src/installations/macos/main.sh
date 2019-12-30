@@ -29,7 +29,7 @@ main() {
     ../nodejs.sh
     ./shell-script.sh
     ./uml.sh
-    ../tmux.sh
+    # ../tmux.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -46,7 +46,7 @@ main() {
     ./design.sh
     ./netdisk.sh
     ./vc_tool.sh
-    ./sql.sh
+    # ./sql.sh
     ./ide.sh
     ./misc_app.sh
 
