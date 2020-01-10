@@ -9,7 +9,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 declare -r PROXYCHAINS_CONFIG_FILE="/usr/local/etc/proxychains.conf"
 
 declare -r DEFAULT_SOCKS5_HOST="127.0.0.1"
-declare -r DEFAULT_SOCKS5_PORT="1086"
+declare -r DEFAULT_SOCKS5_PORT="1080"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
