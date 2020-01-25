@@ -43,7 +43,12 @@ main() {
 
     print_in_purple "\n   GFW Applications\n\n"
 
-    yaourt_install "qv2ray" "qv2ray"
+    pacman_install "v2ray" "v2ray" "community"
+    pacman_install "v2ray-geoip" "v2ray-geoip" "community"
+    pacman_install "v2ray-domain-list-community" \
+                   "v2ray-domain-list-community" \
+                   "community"
+    pacman_install "qv2ray" "qv2ray" "archlinuxcn"
 
     pacman_install "proxychains-ng" "proxychains-ng" "community" \
         && set_proxychains_config
