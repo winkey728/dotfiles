@@ -8,7 +8,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 main() {
 
-    brew_install "Tmux" "tmux --with-utf8proc"
+    brew_install "Tmux" "tmux"
 
 }
 
