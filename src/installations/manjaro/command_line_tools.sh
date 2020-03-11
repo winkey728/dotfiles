@@ -108,6 +108,7 @@ main() {
     pacman_install "Aria" "aria2" "community"
     pacman_install "Aspell" "aspell" "extra"
     pacman_install "You-Get" "you-get" "community"
+    pacman_install "neofetch" "neofetch" "community"
 
 }
 

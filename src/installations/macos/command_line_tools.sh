@@ -107,6 +107,7 @@ main() {
         && add_nnn_config
 
     brew_install "tldr" "tealdeer"
+    brew_install "neofetch" "neofetch"
     brew_install "Aria2" "aria2"
     brew_install "Aspell" "aspell"
     brew_install "You-Get" "you-get"
