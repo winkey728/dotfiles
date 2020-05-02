@@ -15,6 +15,7 @@ main() {
     # Normal fonts
 
     brew_install "Fira Code" "font-fira-code" "caskroom/fonts" "cask"
+    brew_install "Cascadia" "font-cascadia" "caskroom/fonts" "cask"
     brew_install "Source Code Pro" "font-source-code-pro" "caskroom/fonts" "cask"
     brew_install "Roboto" "font-roboto" "caskroom/fonts" "cask"
 
@@ -22,8 +23,9 @@ main() {
 
     # Iconic fonts
 
-    brew_install "Fira Code (Nerd Complete)" "font-firacode-nerd-font" "caskroom/fonts" "cask"
-    brew_install "Source Code Pro (Nerd Complete)" "font-sourcecodepro-nerd-font" "caskroom/fonts" "cask"
+    brew_install "Fira Code (Nerd Font)" "font-firacode-nerd-font" "caskroom/fonts" "cask"
+    brew_install "Cascadia (Nerd Font)" "font-caskaydiacove-nerd-font" "caskroom/fonts" "cask"
+    brew_install "Source Code Pro (Nerd Font)" "font-sourcecodepro-nerd-font" "caskroom/fonts" "cask"
 
 }
 

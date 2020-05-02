@@ -15,6 +15,7 @@ main() {
     # Normal fonts
 
     pacman_install "Fira Code" "otf-fira-code" "community"
+    pacman_install "Cascadia" "ttf-cascadia-code" "community"
     pacman_install "Source Code Pro" "adobe-source-code-pro-fonts" "extra"
     pacman_install "Roboto" "ttf-roboto" "community"
     pacman_install "文泉驿微米黑" "wqy-microhei" "community"
@@ -24,8 +25,9 @@ main() {
 
     # Iconic fonts
 
-    yaourt_install "Fira Code (Nerd Complete)" "nerd-fonts-fira-code"
-    yaourt_install "Source Code Pro (Nerd Complete)" "nerd-fonts-source-code-pro"
+    pacman_install "Fira Code (Nerd Font)" "nerd-fonts-fira-code" "archlinuxcn"
+    pacman_install "Cascadia (Nerd Font)" "nerd-fonts-cascadia-code" "archlinuxcn"
+    pacman_install "Source Code Pro (Nerd Font)" "nerd-fonts-source-code-pro" "archlinuxcn"
 
 }
 
