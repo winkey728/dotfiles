@@ -118,3 +118,55 @@ yaourt_upgrade() {
         "Yaourt (upgrade)"
 
 }
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Yay stuff
+
+yay_cleanup() {
+
+    execute \
+        "yay --noconfirm -Qtd || true" \
+        "Yay (delete all orphaned packages)"
+
+    execute \
+        "yat --noconfirm -Sc" \
+        "Yay (clear cache)"
+
+}
+
+yay_install() {
+
+    declare -r PKG_READABLE_NAME="$1"
+    declare -r PKG="$2"
+    declare PKG_REPO="$3"
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    # Default repository is `aur`
+
+    if [ -z "$PKG_REPO" ]; then
+        PKG_REPO="aur"
+    fi
+
+    PKG_REPO="${PKG_REPO}/"
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    if yaourt -Qs -q "$PKG" | grep "^$PKG\$" &> /dev/null; then
+        print_success "$PKG_READABLE_NAME"
+    else
+        execute \
+            "yay --noconfirm -S ${PKG_REPO}${PKG}" \
+            "$PKG_READABLE_NAME"
+    fi
+
+}
+
+yay_upgrade() {
+
+    execute \
+        "yay -Syu --no-confirm" \
+        "Yay (upgrade)"
+
+}

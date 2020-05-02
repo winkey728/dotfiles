@@ -12,7 +12,7 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    yaourt_install "SmartSynchronize" "smartsynchronize"
+    yay_install "SmartSynchronize" "smartsynchronize"
 
 }
 

@@ -12,14 +12,14 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    yaourt_install "Jetbrains Toolbox" "jetbrains-toolbox"
+    yay_install "Jetbrains Toolbox" "jetbrains-toolbox"
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     # Editors
 
-    yaourt_install "Visual Studio Code" "visual-studio-code-bin"
-    yaourt_install "Typora" "typora"
+    pacman_install "Visual Studio Code" "visual-studio-code-bin" "archlinuxcn"
+    pacman_install "Typora" "typora" "archlinuxcn"
 
 }
 

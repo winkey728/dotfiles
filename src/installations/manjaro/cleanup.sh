@@ -11,7 +11,7 @@ main() {
     print_in_purple "\n   Cleanup\n\n"
 
     pacman_cleanup
-    yaourt_cleanup
+    yay_cleanup
 
 }
 

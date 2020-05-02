@@ -10,8 +10,8 @@ main() {
 
     print_in_purple "\n   Clojure\n\n"
 
-    yaourt_install "Leiningen" "leiningen"
-    yaourt_install "Boot" "boot"
+    pacman_install "Leiningen" "leiningen" "community"
+    yay_install "Boot" "boot"
 
 }
 

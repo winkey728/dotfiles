@@ -17,7 +17,7 @@ main() {
     pacman_install "Pip 2" "python2-pip" "extra"
     pacman_install "Python 3" "python" "extra"
     pacman_install "Pip 3" "python-pip" "extra"
-    yaourt_install "Pipenv" "python-pipenv" "community"
+    pacman_install "Pipenv" "python-pipenv" "community"
 
 }
 

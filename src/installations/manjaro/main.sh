@@ -10,7 +10,8 @@ main() {
 
     # Foundations
     ./pacman.sh
-    ./yaourt.sh
+    # ./yaourt.sh
+    ./yay.sh
     ./system.sh
     ./font.sh
 
