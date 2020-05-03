@@ -14,18 +14,18 @@ main() {
 
     # Normal fonts
 
-    brew_install "Fira Code" "font-fira-code" "caskroom/fonts" "cask"
-    brew_install "Cascadia" "font-cascadia" "caskroom/fonts" "cask"
-    brew_install "Source Code Pro" "font-source-code-pro" "caskroom/fonts" "cask"
-    brew_install "Roboto" "font-roboto" "caskroom/fonts" "cask"
+    brew_install "Fira Code" "font-fira-code" "homebrew/cask-fonts" "cask"
+    brew_install "Cascadia" "font-cascadia" "homebrew/cask-fonts" "cask"
+    brew_install "Source Code Pro" "font-source-code-pro" "homebrew/cask-fonts" "cask"
+    brew_install "Roboto" "font-roboto" "homebrew/cask-fonts" "cask"
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     # Iconic fonts
 
-    brew_install "Fira Code (Nerd Font)" "font-firacode-nerd-font" "caskroom/fonts" "cask"
-    brew_install "Cascadia (Nerd Font)" "font-caskaydiacove-nerd-font" "caskroom/fonts" "cask"
-    brew_install "Source Code Pro (Nerd Font)" "font-sourcecodepro-nerd-font" "caskroom/fonts" "cask"
+    brew_install "Fira Code (Nerd Font)" "font-firacode-nerd-font" "homebrew/cask-fonts" "cask"
+    brew_install "Cascadia (Nerd Font)" "font-caskaydiacove-nerd-font" "homebrew/cask-fonts" "cask"
+    brew_install "Source Code Pro (Nerd Font)" "font-sourcecodepro-nerd-font" "homebrew/cask-fonts" "cask"
 
 }
 
