@@ -14,9 +14,8 @@ create_directories() {
         "$HOME/Projects/clone"
         "$HOME/Projects/temp"
 
-        "$HOME/Projects/qiniu"
-        "$HOME/Projects/qiniu/runtime/log"
-        "$HOME/Documents/qiniu"
+        "$HOME/.config/fish"
+
     )
 
     for d in "${DIRECTORIES[@]}"; do

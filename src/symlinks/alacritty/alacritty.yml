@@ -319,10 +319,9 @@ live_config_reload: true
 #  args:
 #    - --login
 shell:
-  program: /bin/zsh
+  program: /bin/fish
   args:
-    - -c
-    - "tmux attach || tmux new -t main"
+    - --login
 
 
 # Startup directory
