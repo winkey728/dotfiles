@@ -13,7 +13,7 @@ main() {
         print_in_purple "\n   UI\n\n"
 
         pacman_install "Kvantum Engine" "kvantum-qt5" "community"
-        pacman_install "Arc-KDE" "arc-kde" "community"
+        pacman_install "Materia-KDE" "materia-kde" "community"
         pacman_install "Papirus Icon Theme" "papirus-icon-theme" "community"
         pacman_install "Latte Dock" "latte-dock" "community"
 
