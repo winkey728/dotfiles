@@ -154,3 +154,6 @@ set smartcase                  " Override `ignorecase` option
 
 set background=dark            " Set theme color.
 colorscheme solarized8         " Set theme name.
+
+set tabstop=4                  " Set tab with 4 spaces width.
+set expandtab                  " Replace tab as space
