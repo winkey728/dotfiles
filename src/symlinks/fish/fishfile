@@ -2,10 +2,11 @@ rafaelrinaldi/pure
 b4b4r07/enhancd
 laughedelic/pisces
 jorgebucaran/fish-nvm
-joseluisq/gitnow
+#joseluisq/gitnow
 acomagu/fish-async-prompt
 decors/fish-colored-man
 oh-my-fish/plugin-archlinux
 # oh-my-fish/plugin-brew
 oh-my-fish/plugin-rustup
 edc/bass
+evanlucas/fish-kubectl-completions

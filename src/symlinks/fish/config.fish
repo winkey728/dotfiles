@@ -16,3 +16,4 @@ set fish_completions $fish_completions[1] $fisher_path/completions $fish_complet
 for file in $fisher_path/conf.d/*.fish
     builtin source $file 2> /dev/null
 end
+set -g fish_user_paths "/usr/local/opt/curl/bin" $fish_user_paths
